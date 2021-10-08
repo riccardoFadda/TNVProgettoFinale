@@ -35,4 +35,8 @@ export class MovieratingsService {
       "movie_rating": data.movie_rating
     });
   }
+
+  deleteMovieRating( id ){
+    return this.http.delete(this.baseURL + "/" + id);
+  }
 }
