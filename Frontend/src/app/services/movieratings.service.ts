@@ -36,7 +36,15 @@ export class MovieratingsService {
     });
   }
 
-  deleteMovieRating( id ){
+  deleteMovieRating(id: number){
     return this.http.delete(this.baseURL + "/" + id);
+  }
+
+  editMovieRating(id: number, data: MovieRatingsDataInterface){
+    return this.http.put(this.baseURL+"/"+id, {
+      "movie_id": data.movie_id,
+      "user_id": data.user_id,
+      "movie_rating": data.movie_rating
+    });
   }
 }
