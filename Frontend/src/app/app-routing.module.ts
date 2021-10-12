@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: "login", component: LoginPageComponent},
   { path: "filterByGenre", component: FilterByGenreComponent},
   { path: "sortByDate", component:SortByDateComponent},
-  { path: "moviesApi", component: MoviesApiComponent}
+  { path: "moviesApi", component: MoviesApiComponent},
 ];
 
 @NgModule({

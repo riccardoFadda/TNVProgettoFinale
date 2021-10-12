@@ -20,6 +20,11 @@ import { GenrePipePipe } from './pipes/genrePipe/genre-pipe.pipe';
 import { WelcomePageComponent } from './routes/welcome-page/welcome-page.component';
 import { SortByDateComponent } from './routes/sort-by-date/sort-by-date.component';
 import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
+import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
+import { MovieratingsService } from './services/movieratings.service';
+import { CommentsService } from './services/comments.service';
+import { MoviesApiService } from './services/moviesapi.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,7 @@ import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DataService],
+  providers: [DataService, AuthService, UserService, MovieratingsService, CommentsService, MoviesApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
