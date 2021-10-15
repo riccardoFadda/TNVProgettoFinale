@@ -9,6 +9,7 @@ import { FilterByGenreComponent } from './routes/filter-by-genre/filter-by-genre
 import { WelcomePageComponent } from './routes/welcome-page/welcome-page.component';
 import { SortByDateComponent } from './routes/sort-by-date/sort-by-date.component';
 import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: "filterByGenre", component: FilterByGenreComponent},
   { path: "sortByDate", component:SortByDateComponent},
   { path: "moviesApi", component: MoviesApiComponent},
+  { path: "reviews", component: ReviewsComponent}
 ];
 
 @NgModule({

@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    return this.users.getUserByUsername(username, username+":"+password).subscribe(
+    return this.users.getUserByUsername(username).subscribe(
       response => {
         let user: UserInterface = response;
         localStorage.setItem('currentUser', JSON.stringify(user));

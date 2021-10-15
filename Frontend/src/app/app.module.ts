@@ -25,6 +25,7 @@ import { UserService } from './services/user.service';
 import { MovieratingsService } from './services/movieratings.service';
 import { CommentsService } from './services/comments.service';
 import { MoviesApiService } from './services/moviesapi.service';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MoviesApiService } from './services/moviesapi.service';
     WelcomePageComponent,
     SortByDateComponent,
     MoviesApiComponent,
+    ReviewsComponent,
   ],
   imports: [
     BrowserModule,

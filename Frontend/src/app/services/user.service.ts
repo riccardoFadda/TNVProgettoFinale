@@ -8,45 +8,46 @@ import { UserInterface } from '../models/user.model';
 export class UserService {
 
   private baseURL = 'http://localhost:8080/users';
+  private authentication = 'admin:admin'
 
   constructor(private http: HttpClient) {  }
 
-  getAllUsers(authentication: string){
+  getAllUsers(){
     const headers = new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Basic ' + btoa(authentication)
+      'Authorization': 'Basic ' + btoa(this.authentication)
     })
     return this.http.get<UserInterface[]>(this.baseURL + "/", {headers});
   }
 
-  getUserById(id: number, authentication: string){
+  getUserById(id: number){
     const headers = new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Basic ' + btoa(authentication)
+      'Authorization': 'Basic ' + btoa(this.authentication)
     })
     return this.http.get<UserInterface>(this.baseURL + "/"+ id, {headers});
   }
 
-  getUserByUsername(username: string, authentication: string){
+  getUserByUsername(username: string){
     const headers = new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Basic ' + btoa(authentication)
+      'Authorization': 'Basic ' + btoa(this.authentication)
     })
     return this.http.get<UserInterface>(this.baseURL + "/username/"+ username, {headers});
   }
 
-  getUserByPartialUsername(partial: string, authentication: string){
+  getUserByPartialUsername(partial: string){
     const headers = new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Basic ' + btoa(authentication)
+      'Authorization': 'Basic ' + btoa(this.authentication)
     })
     return this.http.get<UserInterface[]>(this.baseURL + "/username/like/"+ partial, {headers});
   }
 
-  addUser = (data: UserInterface, authentication: string) => {
+  addUser = (data: UserInterface) => {
     const headers = new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Basic ' + btoa(authentication)
+      'Authorization': 'Basic ' + btoa(this.authentication)
     })
     console.log("Ho ricevuto", data);
     return this.http.post<UserInterface>(this.baseURL + "/", JSON.stringify({
@@ -57,18 +58,7 @@ export class UserService {
     }), {headers})
   }
 
-
-  /*postMovieRating = (data: MovieRatingsDataInterface) => {
-    console.log("Ho ricevuto", data);
-    return this.http.post<MovieRatingsDataInterface>(this.baseURL, {
-      "movie_id": data.movie_id,
-      "user_id": data.user_id,
-      "movie_rating": data.movie_rating
-    });
-  }
-
-
-
+  /*
   deleteUserById(id: number, authentication: string){
     const headers = new HttpHeaders({
       'Content-Type':  'application/json',
