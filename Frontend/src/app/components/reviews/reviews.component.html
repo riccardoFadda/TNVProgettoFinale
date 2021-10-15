@@ -21,8 +21,8 @@
   </thead>
   <tbody>
     <tr class="pointer" *ngFor="let rating of filteredRatings; index as i">
-        <th scope="row"> {{rating.user_id}}</th>
-        <td>{{rating.movie_rating}}</td>
+        <th scope="row"> {{filteredUsers[i].username}}</th>
+        <td>{{rating.movie_rating}}/5</td>
         <td>{{filteredComments[i].body}}</td>
     </tr>
 </tbody>

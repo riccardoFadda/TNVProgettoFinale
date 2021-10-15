@@ -6,9 +6,9 @@ import { MovieData } from '../../models/data.model';
 import { CommentsInterface } from 'src/app/models/comments.model';
 import { MovieRatingsDataInterface } from 'src/app/models/movieRatings.model';
 import { UserService } from '../../services/user.service';
-import { UserInterface } from '../login/login.component';
 import { NgForm } from '@angular/forms';
 import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
+import { UserInterface } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-reviews',
@@ -34,7 +34,7 @@ export class ReviewsComponent implements OnInit {
   filteredRatings: MovieRatingsDataInterface[] = [];
 
   users: UserInterface[];
-  usernames: String[] = [];
+  filteredUsers: UserInterface[] = [];
 
   getEntries(){
     this.dataService.getData().subscribe(
@@ -65,10 +65,6 @@ export class ReviewsComponent implements OnInit {
       response => {
         this.users = response;
         console.log(this.users);
-        this.users.forEach(user => {
-          this.usernames.push(user.username);
-        });
-        console.log(this.usernames);
       },
       error => console.log(error)
     )
@@ -103,6 +99,17 @@ export class ReviewsComponent implements OnInit {
     });
   }
 
+  filterUsers(){
+    this.filteredComments.forEach(comment => {
+      this.users.forEach(user => {
+        console.log("confronto ", comment, " e ", user)
+        if(comment.userId==user.id) {
+          this.filteredUsers.push(user);
+        }
+      })
+    })
+  }
+
   selectMovie(selectedMovie: NgForm){
     this.filteredComments.length = 0;
     this.filteredRatings.length = 0;
@@ -112,12 +119,17 @@ export class ReviewsComponent implements OnInit {
     console.log("rating filtrati: ", this.filteredRatings);
     this.filterCommentsByMovie(this.selectedMovie);
     console.log("comments filtrati: ", this.filteredComments);
+    this.filterUsers();
     this.filteredComments.sort((a, b) => {
       return a.userId - b.userId;
     });
     this.filteredRatings.sort((a, b) => {
       return a.user_id - b.user_id;
     });
+    this.filteredUsers.sort((a, b) => {
+      return a.id - b.id;
+    });
+    console.log(this.filteredUsers);
   }
 
 }
