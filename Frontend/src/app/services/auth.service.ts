@@ -31,6 +31,7 @@ export class AuthService {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.userSubject.next(user);
         console.log("l'utente è", localStorage.getItem('currentUser'));
+        this.router.navigate(['/dashboard']);
         return user;
       },
       error => console.log(error)

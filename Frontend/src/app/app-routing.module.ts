@@ -10,20 +10,21 @@ import { WelcomePageComponent } from './routes/welcome-page/welcome-page.compone
 import { SortByDateComponent } from './routes/sort-by-date/sort-by-date.component';
 import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
   { path: "", redirectTo : '/welcome', pathMatch: 'full' },
   { path: "welcome", component: WelcomePageComponent},
-  { path: "dashboard", component : DashboardComponent },
-  { path: "add", component : AddComponent },
-  { path: "details/:id", component : DetailsComponent },
-  { path: "edit/:id", component: EditComponent },
+  { path: "dashboard", component : DashboardComponent, canActivate: [AuthGuardService] },
+  { path: "add", component : AddComponent, canActivate: [AuthGuardService] },
+  { path: "details/:id", component : DetailsComponent, canActivate: [AuthGuardService] },
+  { path: "edit/:id", component: EditComponent, canActivate: [AuthGuardService] },
   { path: "login", component: LoginPageComponent},
-  { path: "filterByGenre", component: FilterByGenreComponent},
-  { path: "sortByDate", component:SortByDateComponent},
-  { path: "moviesApi", component: MoviesApiComponent},
-  { path: "reviews", component: ReviewsComponent}
+  { path: "filterByGenre", component: FilterByGenreComponent, canActivate: [AuthGuardService]},
+  { path: "sortByDate", component:SortByDateComponent, canActivate: [AuthGuardService]},
+  { path: "moviesApi", component: MoviesApiComponent, canActivate: [AuthGuardService]},
+  { path: "reviews", component: ReviewsComponent, canActivate: [AuthGuardService]}
 ];
 
 @NgModule({

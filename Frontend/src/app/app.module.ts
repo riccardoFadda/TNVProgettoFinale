@@ -26,6 +26,7 @@ import { MovieratingsService } from './services/movieratings.service';
 import { CommentsService } from './services/comments.service';
 import { MoviesApiService } from './services/moviesapi.service';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DataService, AuthService, UserService, MovieratingsService, CommentsService, MoviesApiService],
+  providers: [DataService, AuthService, UserService, MovieratingsService, CommentsService, MoviesApiService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

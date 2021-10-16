@@ -113,6 +113,7 @@ export class ReviewsComponent implements OnInit {
   selectMovie(selectedMovie: NgForm){
     this.filteredComments.length = 0;
     this.filteredRatings.length = 0;
+    this.filteredUsers.length = 0;
     this.getMovieByName(selectedMovie.form.value.selectedMovie);
     console.log("film: ", this.selectedMovie)
     this.filterRatingsByMovie(this.selectedMovie);

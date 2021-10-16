@@ -32,11 +32,20 @@
                 Watchlist
               </a>
             </li>
+            <li *ngIf="this.currentUser==null; then loginBlock else logoutBlock">
             <li>
+            <ng-template #loginBlock>
             <a [routerLink]="['/login']" class="nav-link">
               <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
               <i class="openButton fas fa-user fa-1.5x bi d-block mx-auto mb-1" width="24" height="24"></i>
             </a>
+            </ng-template>
+            <ng-template #logoutBlock>
+              <a [routerLink]="['/login']" class="nav-link" (click)="logout()">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
+                {{this.currentUser.username}}
+              </a>
+              </ng-template>
             </li>
             <li>
               <a [routerLink]="['/filterByGenre']" class="nav-link">
@@ -49,4 +58,3 @@
       </div>
     </div>
   </header>
-  
