@@ -11,6 +11,9 @@ import { SortByDateComponent } from './routes/sort-by-date/sort-by-date.componen
 import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { MatchMoviesComponent } from './components/matchMovies/matchMovies.component';
+import { MoviesFromApiComponent } from './routes/moviesFromApi/moviesFromApi.component';
+import { MoviesFromDBComponent } from './routes/moviesFromDB/moviesFromDB.component';
 
 
 const routes: Routes = [
@@ -24,7 +27,11 @@ const routes: Routes = [
   { path: "filterByGenre", component: FilterByGenreComponent, /*canActivate: [AuthGuardService]*/},
   { path: "sortByDate", component:SortByDateComponent, /*canActivate: [AuthGuardService]*/},
   { path: "moviesApi", component: MoviesApiComponent, /*canActivate: [AuthGuardService]*/},
-  { path: "reviews", component: ReviewsComponent, /*canActivate: [AuthGuardService]*/}
+  { path: "reviews", component: ReviewsComponent, /*canActivate: [AuthGuardService]*/},
+  { path: "matchMovies", component: MatchMoviesComponent, /*canActivate: [AuthGuardService]*/},
+  { path: "matchFromApi", component: MoviesFromApiComponent, /*canActivate: [AuthGuardService]*/},
+  { path: "matchFromDb", component: MoviesFromDBComponent, /*canActivate: [AuthGuardService]*/}
+
 ];
 
 @NgModule({

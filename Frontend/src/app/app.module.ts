@@ -27,6 +27,10 @@ import { CommentsService } from './services/comments.service';
 import { MoviesApiService } from './services/moviesapi.service';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { MatchMoviesComponent } from './components/matchMovies/matchMovies.component';
+import { MoviesFromDBComponent } from './routes/moviesFromDB/moviesFromDB.component';
+import { MoviesFromApiComponent } from './routes/moviesFromApi/moviesFromApi.component';
+import { MoviesFromApiService } from './services/movieFromApi.service';
 
 @NgModule({
   declarations: [
@@ -46,6 +50,9 @@ import { AuthGuardService } from './services/auth-guard.service';
     SortByDateComponent,
     MoviesApiComponent,
     ReviewsComponent,
+    MatchMoviesComponent,
+    MoviesFromDBComponent,
+    MoviesFromApiComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DataService, AuthService, UserService, MovieratingsService, CommentsService, MoviesApiService, AuthGuardService],
+  providers: [DataService, AuthService, UserService, MovieratingsService, CommentsService, MoviesApiService,MoviesFromApiService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
