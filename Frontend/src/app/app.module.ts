@@ -31,6 +31,7 @@ import { MatchMoviesComponent } from './components/matchMovies/matchMovies.compo
 import { MoviesFromDBComponent } from './routes/moviesFromDB/moviesFromDB.component';
 import { MoviesFromApiComponent } from './routes/moviesFromApi/moviesFromApi.component';
 import { MoviesFromApiService } from './services/movieFromApi.service';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { MoviesFromApiService } from './services/movieFromApi.service';
     ReviewsComponent,
     MatchMoviesComponent,
     MoviesFromDBComponent,
-    MoviesFromApiComponent
+    MoviesFromApiComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

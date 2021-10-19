@@ -28,7 +28,9 @@ export class DataService {
       "rated": data.rated,
       "reviews": data.reviews,
       "evaluation": data.evaluation,
-      "releaseDate": data.releaseDate
+      "releaseDate": data.releaseDate,
+      "addedBy": 0,
+      "counter": 0
     });
   };
 
@@ -46,7 +48,7 @@ export class DataService {
       "rated": data.rated,
       "reviews": data.reviews,
       "evaluation": data.evaluation,
-      "releaseDate": data.releaseDate
+      "releaseDate": data.releaseDate,
     });
   };
 

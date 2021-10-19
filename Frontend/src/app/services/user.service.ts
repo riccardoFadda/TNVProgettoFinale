@@ -50,12 +50,12 @@ export class UserService {
       'Authorization': 'Basic ' + btoa(this.authentication)
     })
     console.log("Ho ricevuto", data);
-    return this.http.post<UserInterface>(this.baseURL + "/", JSON.stringify({
+    return this.http.post(this.baseURL + "/", JSON.stringify({
       "email": data.email,
       "enabled": data.enabled,
       "username": data.username,
       "password": data.password
-    }), {headers})
+    }), {headers, responseType: 'text' as const})
   }
 
   /*

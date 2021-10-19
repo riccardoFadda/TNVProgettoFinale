@@ -8,4 +8,6 @@ export interface MovieData {
     reviews: string;
     evaluation: number;
     releaseDate: Date;
+    addedBy: number;
+    counter: number;
 }
