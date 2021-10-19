@@ -15,6 +15,7 @@ import { MatchMoviesComponent } from './components/matchMovies/matchMovies.compo
 import { MoviesFromApiComponent } from './routes/moviesFromApi/moviesFromApi.component';
 import { MoviesFromDBComponent } from './routes/moviesFromDB/moviesFromDB.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ReviewComponent } from './components/review/review.component';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: "matchMovies", component: MatchMoviesComponent, /*canActivate: [AuthGuardService]*/},
   { path: "matchFromApi", component: MoviesFromApiComponent, /*canActivate: [AuthGuardService]*/},
   { path: "matchFromDb", component: MoviesFromDBComponent, /*canActivate: [AuthGuardService]*/},
-  { path: "sign-up", component: SignUpComponent}
+  { path: "sign-up", component: SignUpComponent},
+  { path: "review", component: ReviewComponent, /*canActivate: [AuthGuardService]*/}
 
 ];
 
