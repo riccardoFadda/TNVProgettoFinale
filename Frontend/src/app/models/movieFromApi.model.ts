@@ -1,4 +1,12 @@
 export interface MovieListInterface{
+      
+        page: number,
+        results: any[],
+        total_results: number,
+        total_pages: number
+    }
+    
+    export interface MoviesApiResultsInterface{
         poster_path: string,
         overview: string,
         release_date: string,
@@ -6,14 +14,6 @@ export interface MovieListInterface{
         id: number,
         title: string,
         data: MoviesApiResultsInterface []
-    
-    }
-    
-    export interface MoviesApiResultsInterface{
-        page: number,
-        results: any[],
-        total_results: number,
-        total_pages: number
     }
 
   

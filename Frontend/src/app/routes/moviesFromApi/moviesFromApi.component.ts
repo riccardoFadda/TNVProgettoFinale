@@ -29,7 +29,7 @@ export class MoviesFromApiComponent implements OnInit {
         console.log("ho ottenuto i dati!")
         this.moviesApi = response;
         console.log("i dati ottenuti sono: ", this.moviesApi);
-        this.dataApi= this.moviesApi.data;
+        this.dataApi= this.moviesApi.results;
         console.log("results: ", this.dataApi);
         //console.log("I dati stringify: " + JSON.stringify(this.movies))
       },
@@ -38,6 +38,7 @@ export class MoviesFromApiComponent implements OnInit {
       
     )
   }
+    
     
 
 }

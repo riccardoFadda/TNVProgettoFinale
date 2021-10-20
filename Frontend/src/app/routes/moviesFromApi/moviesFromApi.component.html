@@ -1,36 +1,15 @@
-<div class="container">
-    <div class="border">
-      <button class="btn btn-md btn-outline-primary">
-        <i class="fa fa-user"></i>Nuovo Film</button>
+ <div class="card" style="width: 18rem;" *ngFor="let movie of dataApi">
+    <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{movie.poster_path}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{movie.title}}</h5>
+      <h6 class="card-title">{{movie.release_date}}</h6>
+
+      <p class="card-text">"{{movie.overview}}"</p>
     </div>
-    <table class="table table-bordered table-striped">
-      <thead>
-      <tr>
-        <th>Id</th>
-        <th>Id del Genere</th>
-        <th>Titolo</th>
-        <th>Data di Rilascio</th>
-        <th>Overview</th>
-        <th>Stringa del posterPath</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let movie of dataApi">
-        <td><span>{{movie.id}}</span></td>
-        <td><span>{{movie.genre_ids}}</span></td>
-        <td><span>{{movie.title}}</span></td>
-        <td><span>{{movie.release_date}}</span></td>
-        <td><span>{{movie.overview}}</span></td>
-        <td><span>{{movie.poster_path}}</span></td>
-      </tr>
-      <td>
-        <button class="btn btn-sm btn-info">
-          <i class="fa fa-search"></i>Details</button>
-        <button class="btn btn-sm btn-warning">
-          <i class="fa fa-edit"></i>Edit</button>
-        <button class="btn btn-sm btn-danger">
-          <i class="fa fa-remove"></i>Delete</button>
-      </td>
-      </tbody>
-    </table>
+   
+    <div class="card-body">
+      <a href="#" class="card-link">Bottone</a>
+      <a href="#" class="card-link">Bottone</a>
+    </div>
   </div>
+
