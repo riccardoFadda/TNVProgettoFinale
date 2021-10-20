@@ -1,15 +1,31 @@
- <div class="card" style="width: 18rem;" *ngFor="let movie of dataApi">
-    <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{movie.poster_path}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{movie.title}}</h5>
-      <h6 class="card-title">{{movie.release_date}}</h6>
-
-      <p class="card-text">"{{movie.overview}}"</p>
-    </div>
-   
+  <div class="movie-card" *ngFor="let movie of dataApi| slice:0:2">
+    <div class="movie-content">
+      <div class="movie-content-header">
+        <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{movie.poster_path}}" alt="Card image cap">
+      </div>
+      <div class="card-body">
+    
+      <h4 class="movie-title">{{movie.title}}</h4>
+        <div class="movie_info"> 
+              <i class="fas fa-star"></i>{{movie.vote_average}}
+        </div>
+        <div class="movie-info">
+          <div class="info-section">
+            <label>Date</label>
+            <span>{{movie.release_date}}</span>
+          </div>
+        </div>
+        
+          <details>
+          <summary>
+          Read Overview
+          </summary>
+          <p class="card-text">"{{movie.overview}}"</p>
+          </details>
+      </div>
+    </div><!--movie-content-->
     <div class="card-body">
       <a href="#" class="card-link">Bottone</a>
       <a href="#" class="card-link">Bottone</a>
     </div>
-  </div>
-
+  </div><!--movie-card-->

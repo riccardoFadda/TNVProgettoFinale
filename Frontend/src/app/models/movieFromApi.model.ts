@@ -13,6 +13,7 @@ export interface MovieListInterface{
         genre_ids: number[],
         id: number,
         title: string,
+        vote_average: number,
         data: MoviesApiResultsInterface []
     }
 
