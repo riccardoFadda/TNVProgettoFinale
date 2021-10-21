@@ -1,13 +1,18 @@
 <header>
   <div class="bg-dark">
     <div class="container">
+
       <div id ="logo">
-        TheNetFish <a [routerLink]='["/welcome"]' class="nav-link"></a>
+        <a [routerLink]='["/welcome"]' class="nav-link">
+          TheNetFish
+        </a>
       </div>
+
+
       <div>
         <ul id="menuDX" class="nav col-lg-auto my-2 my-md-0 justify-content-end">
           <li></li>
-         
+
           <li>
             <a [routerLink]='["/moviesApi"]' class="nav-link">
               <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
@@ -23,7 +28,7 @@
           <li>
             <a [routerLink]='["/matchMovies"]' class="nav-link">
               <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
-             Match Movies
+             Movie Match
             </a>
           </li>
             <li *ngIf="this.currentUser==null; then loginBlock else logoutBlock">

@@ -17,4 +17,23 @@
       </a>
     </div>
   </div>
+  <div class="row">
+    <div class="col">
+      <h1 id="titles">Movie Match</h1>
+      <p id="subtitles" >Explore</p>
+      <form action="/action_page.php">
+        <div>
+
+          <input type="radio" id="radiox" name="radio" value="Netfish"
+                 checked>
+          <label id="radiosx"for="Netfish">Netfish List</label>
+
+          <input type="radio" id="radiox" name="radio" value="Watchlist">
+          <label id="radiodx"  for="Watchlist">Your Watchlist</label>
+
+        </div>
+      </form>
+      <app-MoviesFromApi></app-MoviesFromApi>
+    </div>
+  </div>
 </div>

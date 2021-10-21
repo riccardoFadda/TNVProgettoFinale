@@ -8,7 +8,7 @@ header {
     font-family: "DK Lemon Yellow Sun";
     src: local("DK Lemon Yellow Sun"), url(../../../assets/fonts/DKLemonYellowSun.otf) format("truetype");
 }
-  
+
   /* logo sulla sinistra (scritta + icona) */
   #logo {
     width: 150px;
@@ -20,14 +20,15 @@ header {
     margin-top: 15px;
     margin-left: 10px;
   }
-  
+
   /*scritte + icona menu sulla destra*/
   #menuDX {
       font-family: 'DK Lemon Yellow Sun';
     font-size: 20px;
-    position: absolute;
+    width: calc(100% - 150px);
+    float: right;
   }
-  
+
   /* classe delle scritte a destra */
   .nav-link {
       display: block;
@@ -35,14 +36,14 @@ header {
       text-decoration: none;
       transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
   }
-  
+
   /* fascia nera di sfondo */
   .bg-dark{
     height: 80px;
     content: normal;
     align-content: stretch;
   }
-  
+
   /* blocco fascia nera + scritte */
   .container {
     height: 140px;
@@ -52,10 +53,9 @@ header {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   /* elementi della lista (-> rapporto logo/menu)*/
   ul {
     width: 100%;
     box-sizing: border-box;
   }
-  
