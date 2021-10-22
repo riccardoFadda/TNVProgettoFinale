@@ -1,7 +1,9 @@
 .container{
-  margin: top 32px;;
+  margin: top 20px;;
   padding: 5%;
   font-family: Poppins;
+  height: auto;
+  width: auto;
 
 }
 element.style {

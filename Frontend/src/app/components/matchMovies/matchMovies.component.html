@@ -1,36 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm">
-      <a href="/matchFromApi"
-         role="button"
-         class="btn btn-outline-primary btn-lg btn-block text-center">
-        <span><i class="fa fa-users"></i></span>
-        <br>MoviesFromApi
-      </a>
-    </div>
-    <div class="col-sm">
-      <a href="/matchFromDb"
-         role="button"
-         class="btn btn-outline-primary btn-lg btn-block text-center">
-        <span><i class="fa fa-users"></i></span>
-        <br>MoviesFromDB
-      </a>
-    </div>
-  </div>
-  <div class="row">
     <div class="col">
       <h1 id="titles">Movie Match</h1>
       <p id="subtitles" >Explore</p>
       <form action="/action_page.php">
         <div>
-
-          <input type="radio" id="radiox" name="radio" value="Netfish"
-                 checked>
-          <label id="radiosx"for="Netfish">Netfish List</label>
-
+          <a href="/matchFromApi">
+          <input type="radio" id="radiox" name="radio" value="Netfish">
+          <label id="radiosx"for="Netfish" href="/matchFromDb">Netfish List</label>
+          </a>
+          <a href="/matchFromDb">
           <input type="radio" id="radiox" name="radio" value="Watchlist">
           <label id="radiodx"  for="Watchlist">Your Watchlist</label>
-
+          </a>
         </div>
       </form>
       <app-MoviesFromApi></app-MoviesFromApi>
