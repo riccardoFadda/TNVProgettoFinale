@@ -15,19 +15,14 @@ export class MoviesApiComponent implements OnInit {
   constructor(private apiService:MoviesApiService) { }
 
   ngOnInit(): void {
-    this.getMarvelListOnComponent();
+    this.getMoviesListOnComponent();
   }
 
-  getMarvelListOnComponent(){
-    this.apiService.getMarvelList().subscribe(
+  getMoviesListOnComponent(){
+    this.apiService.getMoviesList().subscribe(
       response => {
-        //se è andato tutto bene, allora:
-        console.log("ho ottenuto i dati!")
         this.movies = response;
-        console.log("i dati ottenuti sono: ", this.movies);
         this.results= this.movies.results;
-        console.log("results: ", this.results)
-        //console.log("I dati stringify: " + JSON.stringify(this.movies))
       },
       error => console.log(error)
     )

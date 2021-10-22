@@ -7,13 +7,20 @@ import { MovieApiInterface } from '../models/apiMovie.model';
 })
 export class MoviesApiService {
 
-    private baseURL = 'https://api.themoviedb.org/4/';
-    private apiKey = "MYKEY";
+  private baseURL = 'https://api.themoviedb.org/3/movie/popular?';
+  private apiKey = "24a4cd53ea9a762873fb4acb15cdedd8";
+  public randomNumber = this.getRandomInt(1,50);
 
-    constructor( private http : HttpClient) { }
+  getRandomInt(min, max) : number{
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min; 
+  };
 
-    getMarvelList(){
-        return this.http.get<MovieApiInterface>(this.baseURL+"list/1?api_key="+this.apiKey);
-    }
+  constructor( private http : HttpClient) { }
+
+  getMoviesList(){ 
+      return this.http.get<MovieApiInterface>(this.baseURL+"api_key="+this.apiKey+"&page="+this.randomNumber);
+  }
 
 }
