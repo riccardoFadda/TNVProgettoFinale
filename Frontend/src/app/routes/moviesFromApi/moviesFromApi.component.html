@@ -1,6 +1,8 @@
+<div class="container">
+
   <div class="movie-card" *ngFor="let movie of dataApi| slice:0:2">
     <div class="movie-content">
-      <div class="movie-content-header">
+      <div class="movie-content-header" >
         <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{movie.poster_path}}" alt="Card image cap">
       </div>
       <div class="card-body">
@@ -28,3 +30,5 @@
       <a href="#" class="card-link">Bottone</a>
       <a href="#" class="card-link">Bottone</a>
     </div>
+
+</div>
