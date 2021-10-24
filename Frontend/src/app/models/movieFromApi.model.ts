@@ -14,7 +14,7 @@ export interface MovieListInterface{
         id: number,
         title: string,
         vote_average: number,
-        data: MoviesApiResultsInterface []
+        // data: MoviesApiResultsInterface []
     }
 
   
