@@ -21,7 +21,7 @@ router.get('/:id', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, counter} = req.body;
+    const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy, counter} = req.body;
 
     DataEntry.create({
         name: name,
@@ -46,7 +46,7 @@ router.post('/', function (req, res, next) {
 
 router.put('/:id', function (req, res, next) {
     const dataId = req.params.id;
-    const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, counter} = req.body;
+    const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy, counter} = req.body;
 
     DataEntry.update({
         name: name,

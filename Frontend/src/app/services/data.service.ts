@@ -21,6 +21,7 @@ export class DataService {
 
   addEntry = (data: MovieData) => {
     console.log("mi è arrivato", data);
+    console.log(typeof(data.releaseDate));
     return this.http.post<MovieData>(this.baseURL, {
       "name": data.name,
       "cast": data.cast,

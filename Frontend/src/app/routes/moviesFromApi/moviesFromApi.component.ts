@@ -26,7 +26,6 @@ export class MoviesFromApiComponent implements OnInit {
   movie2CastResults: MoviesApiCastResultsInterface[];
   movie2CrewResults: MoviesApiCrewResultsInterface[];
   movieToDb: MovieData = {
-    "id" : 0,
     "addedBy" : 0,
     "cast": "",
     "counter": 0,
@@ -105,7 +104,10 @@ export class MoviesFromApiComponent implements OnInit {
     this.movieToDb.rated = this.movie1.adult;
     this.movieToDb.evaluation = 5;
     this.movieToDb.releaseDate = this.movie1.release_date;
-    this.movieToDb.reviews = this.movie1.overview;
+    var trimmedOverview1 = this.movie1.overview.length > 100 ?
+                    this.movie1.overview.substring(0, 99) + "…" :
+                    this.movie1.overview;
+    this.movieToDb.reviews = trimmedOverview1;
     this.movieToDb.genre = "Horror";
     console.log("Prima di mandarlo è ", this.movieToDb);
     this.dataService.addEntry(this.movieToDb).subscribe(
@@ -117,7 +119,10 @@ export class MoviesFromApiComponent implements OnInit {
         this.movieToDb.rated = this.movie2.adult;
         this.movieToDb.evaluation = 5;
         this.movieToDb.releaseDate = this.movie2.release_date;
-        this.movieToDb.reviews = this.movie2.overview;
+        var trimmedOverview2 = this.movie2.overview.length > 100 ?
+                    this.movie2.overview.substring(0, 99) + "…" :
+                    this.movie2.overview;
+        this.movieToDb.reviews = trimmedOverview2;
         this.movieToDb.genre = "Horror";
         this.dataService.addEntry(this.movieToDb).subscribe(
           response => console.log(response),

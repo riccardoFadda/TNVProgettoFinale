@@ -1,5 +1,5 @@
 export interface MovieData {
-    id: number;
+    id?: number;
     name: string;
     cast: string;
     director: string;

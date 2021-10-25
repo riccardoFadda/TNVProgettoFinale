@@ -35,7 +35,7 @@ const getEntryById = (req, res) => {
 };
 
 const createEntry = (req, res) => {
-  const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy} = req.body;
+  const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy, counter} = req.body;
 
   DataEntry.create({
     name: name,

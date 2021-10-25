@@ -14,7 +14,7 @@ export class AddComponent implements OnInit {
   constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit(): void {
-    
+
   }
 
   dataEntry : MovieData;
@@ -22,7 +22,7 @@ export class AddComponent implements OnInit {
   genres = ['Horror','Adventure','Comedy','Fantasy','Crime','Romance']
   ratedOptions = ['yes', 'no']
 
-  
+
 
   onSubmit(form : NgForm){
     this.dataEntry = form.form.value;
