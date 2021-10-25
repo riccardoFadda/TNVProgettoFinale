@@ -7,7 +7,7 @@ export interface MovieData {
     rated: boolean;
     reviews: string;
     evaluation: number;
-    releaseDate: Date;
+    releaseDate?: Date;
     addedBy: number;
     counter: number;
 }

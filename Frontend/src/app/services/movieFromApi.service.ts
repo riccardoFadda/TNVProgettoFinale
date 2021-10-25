@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {MovieListInterface} from '../models/movieFromApi.model';
+import { MovieListInterface, MoviesApiCastAndCrewInterface } from '../models/movieFromApi.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +14,17 @@ export class MoviesFromApiService {
     getRandomInt(min, max) : number{
         min = Math.ceil(min);
         max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min; 
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
     constructor( private http : HttpClient) { }
 
     getMovies(){
         return this.http.get<MovieListInterface>(this.baseURL+"top_rated?api_key="+this.apiKey+"&page="+this.randomNumber);
+    }
+
+    getMovieCast(id: number){
+      return this.http.get<MoviesApiCastAndCrewInterface>(this.baseURL+id+"/credits?api_key="+this.apiKey)
     }
 
 }
