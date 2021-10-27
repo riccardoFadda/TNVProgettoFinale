@@ -5,6 +5,7 @@ import { MovieListInterface, MoviesApiResultsInterface, MoviesApiCastAndCrewInte
 import { MoviesFromApiService } from '../../services/movieFromApi.service';
 import { MovieData } from '../../models/data.model';
 import { DataService } from '../../services/data.service';
+import { NgbTypeaheadConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-MoviesFromApi',
@@ -15,16 +16,29 @@ import { DataService } from '../../services/data.service';
 export class MoviesFromApiComponent implements OnInit {
 
 
+  randomMovie1: {
+    movieData: any,
+    movieCast: any[],
+    movieCrew: any[]
+  } = {
+    "movieData": 0,
+    "movieCast": [],
+    "movieCrew": []
+  }
+
+  randomMovie2: {
+    movieData: any,
+    movieCast: any[],
+    movieCrew: any[]
+  } = {
+    "movieData": 0,
+    "movieCast": [],
+    "movieCrew": []
+  }
+
   moviesApi: MovieListInterface;
   dataApi: MoviesApiResultsInterface[];
-  movie1: MoviesApiResultsInterface;
-  movie2: MoviesApiResultsInterface;
-  movie1CastAndCrew: MoviesApiCastAndCrewInterface;
-  movie1CastResults: MoviesApiCastResultsInterface[];
-  movie1CrewResults: MoviesApiCrewResultsInterface[];
-  movie2CastAndCrew: MoviesApiCastAndCrewInterface;
-  movie2CastResults: MoviesApiCastResultsInterface[];
-  movie2CrewResults: MoviesApiCrewResultsInterface[];
+
   movieToDb: MovieData = {
     "addedBy" : 0,
     "cast": "",
@@ -36,104 +50,67 @@ export class MoviesFromApiComponent implements OnInit {
     "rated": false,
     "reviews": ""
   };
-  movie1Director: string;
-  movie2Director: string;
 
 
   constructor(private movieService: MoviesFromApiService, private dataService: DataService) { }
 
   ngOnInit(): void {
     this.getMoviesApi();
+
   }
 
   getMoviesApi(){
-    this.movieService.getMovies().subscribe(
-      response => {
-        this.moviesApi = response;
-        this.dataApi= this.moviesApi.results;
-        this.movie1 = this.dataApi[0];
-        this.movie2 = this.dataApi[1];
-        console.log(this.movie1, this.movie2);
-        this.getMovieCastAndCrew();
-
-      },
-      error => console.log(error)
-    )
+    this.getRandomMovie(this.randomMovie1);
+    this.getRandomMovie(this.randomMovie2);
   }
 
-  getMovieCastAndCrew(){
-    this.movieService.getMovieCast(this.movie1.id).subscribe(
+  getRandomMovie(randomMovie){
+    this.movieService.getMovies().subscribe(
       response => {
-        this.movie1CastAndCrew = response;
-        console.log(this.movie1CastAndCrew)
-        this.movie1CastResults = this.movie1CastAndCrew.cast;
-        console.log(this.movie1CastResults)
-        this.movie1CrewResults = this.movie1CastAndCrew.crew;
-        this.movieService.getMovieCast(this.movie2.id).subscribe(
+        console.log(response)
+        //da aggiungere controlli che il nuovo film preso dall'api non sia lo stesso di prima, o uguale all'altro già presente
+        randomMovie.movieData = response.results[this.movieService.getRandomInt(0,19)];
+        console.log(randomMovie.movieData);
+        this.movieService.getMovieCast(randomMovie.movieData.id).subscribe(
           response => {
-            this.movie2CastAndCrew = response;
-            console.log(this.movie2CastAndCrew)
-            this.movie2CastResults = this.movie2CastAndCrew.cast;
-            console.log(this.movie2CastResults)
-            this.movie2CrewResults = this.movie2CastAndCrew.crew;
-            this.getMovieDirector();
-            this.addMoviesToDb();
+            randomMovie.movieCast = response.cast;
+            randomMovie.movieCrew = response.crew;
+            console.log("cast: ", randomMovie.movieCast)
+            console.log("crew: ", randomMovie.movieCrew)
+            this.addMovieToDb(randomMovie);
           },
           error => console.log(error)
         )
       },
       error => console.log(error)
     )
-
   }
 
-  getMovieDirector(){
-    this.movie1CrewResults.forEach(element => {
-      if(element.job==="Director") this.movie1Director=element.name;
+  addMovieToDb(randomMovie){
+    this.movieToDb.name = randomMovie.movieData.title;
+    console.log(randomMovie.movieCast);
+    this.movieToDb.cast = randomMovie.movieCast[0].name+", "+randomMovie.movieCast[1].name+", "+randomMovie.movieCast[2].name;
+    this.movieToDb.rated = randomMovie.movieData.adult;
+    this.movieToDb.evaluation = randomMovie.movieData.vote_average;
+    this.movieToDb.releaseDate = randomMovie.movieData.release_date;
+    randomMovie.movieCrew.forEach(element => {
+      if(element.job==="Director") this.movieToDb.director=element.name;
     });
-    this.movie2CrewResults.forEach(element => {
-      if(element.job==="Director") this.movie2Director=element.name;
-    })
-    console.log("Director1: ", this.movie1Director, " Director 2: ", this.movie2Director)
-  }
+    var trimmedOverview = randomMovie.movieData.overview.length > 100 ?
+                    randomMovie.movieData.overview.substring(0, 99) + "…" :
+                    randomMovie.movieData.overview;
+    this.movieToDb.reviews = trimmedOverview;
+    this.movieToDb.genre = "Horror";    //da modificare per selezionare il vero genere
+    //da aggiungere l' "addedBy", poi lo faccio io
 
-  addMoviesToDb(){
-    this.movieToDb.name = this.movie1.title;
-    this.movieToDb.cast = this.movie1CastResults[0].name+", "+this.movie1CastResults[1].name+", "+this.movie1CastResults[2].name;
-    this.movieToDb.director = this.movie1Director;
-    this.movieToDb.rated = this.movie1.adult;
-    this.movieToDb.evaluation = 5;
-    this.movieToDb.releaseDate = this.movie1.release_date;
-    var trimmedOverview1 = this.movie1.overview.length > 100 ?
-                    this.movie1.overview.substring(0, 99) + "…" :
-                    this.movie1.overview;
-    this.movieToDb.reviews = trimmedOverview1;
-    this.movieToDb.genre = "Horror";
-    console.log("Prima di mandarlo è ", this.movieToDb);
+    console.log("da mandare al db:", this.movieToDb);
+
+    //da aggiungere controllo per vedere che il film non sia già nel database
     this.dataService.addEntry(this.movieToDb).subscribe(
-      response => {
-        console.log(response);
-        this.movieToDb.name = this.movie2.title;
-        this.movieToDb.cast = this.movie2CastResults[0].name+", "+this.movie2CastResults[1].name+", "+this.movie2CastResults[2].name;
-        this.movieToDb.director = this.movie2Director;
-        this.movieToDb.rated = this.movie2.adult;
-        this.movieToDb.evaluation = 5;
-        this.movieToDb.releaseDate = this.movie2.release_date;
-        var trimmedOverview2 = this.movie2.overview.length > 100 ?
-                    this.movie2.overview.substring(0, 99) + "…" :
-                    this.movie2.overview;
-        this.movieToDb.reviews = trimmedOverview2;
-        this.movieToDb.genre = "Horror";
-        this.dataService.addEntry(this.movieToDb).subscribe(
-          response => console.log(response),
-          error => console.log(error)
-        )
-      },
+      response => console.log(response),
       error => console.log(error)
     )
   }
-
-
 
 }
 
