@@ -9,7 +9,6 @@ export class MoviesFromApiService {
 
     private baseURL = 'https://api.themoviedb.org/3/movie/';
     private apiKey = "24a4cd53ea9a762873fb4acb15cdedd8";
-    public randomNumber = this.getRandomInt(1,10);
 
     getRandomInt(min, max) : number{
         min = Math.ceil(min);
@@ -20,7 +19,7 @@ export class MoviesFromApiService {
     constructor( private http : HttpClient) { }
 
     getMovies(){
-        return this.http.get<MovieListInterface>(this.baseURL+"top_rated?api_key="+this.apiKey+"&page="+this.randomNumber);
+        return this.http.get<MovieListInterface>(this.baseURL+"top_rated?api_key="+this.apiKey+"&page="+this.getRandomInt(1,10));
     }
 
     getMovieCast(id: number){

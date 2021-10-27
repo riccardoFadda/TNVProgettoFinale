@@ -27,16 +27,16 @@ export class EditComponent implements OnInit {
   fetchEntry(id){
     this.dataService.getEntry(id).subscribe( (res: any ) => {
       this.dataEntry = res;
-      
+
       console.log(this.dataEntry)
       if(this.dataEntry.rated){
         this.ratedOptionSelected="yes";
       }
       else this.ratedOptionSelected="no"
     })
-    
+
   }
- 
+
   onSubmit(){
     console.log(this.dataEntry);
     if(this.ratedOptionSelected =='yes'){
@@ -52,7 +52,6 @@ export class EditComponent implements OnInit {
     }), err => {
       console.log(err);
     }
-    this.router.navigate(['/details', this.dataEntry.id])
   }
 
 }
