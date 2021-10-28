@@ -10,4 +10,5 @@ export interface MovieData {
     releaseDate?: Date;
     addedBy: number;
     counter: number;
+    apiId?: number;
 }

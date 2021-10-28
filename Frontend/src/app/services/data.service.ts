@@ -22,6 +22,10 @@ export class DataService {
   addEntry = (data: MovieData) => {
     console.log("mi è arrivato", data);
     console.log(typeof(data.releaseDate));
+    let apiId;
+    if(data.apiId) apiId=data.apiId;
+    else apiId=-1;
+    console.log(apiId);
     return this.http.post<MovieData>(this.baseURL, {
       "name": data.name,
       "cast": data.cast,
@@ -32,7 +36,8 @@ export class DataService {
       "evaluation": data.evaluation,
       "releaseDate": data.releaseDate,
       "addedBy": 0,
-      "counter": 0
+      "counter": 0,
+      "apiId": apiId
     });
   };
 
@@ -51,6 +56,9 @@ export class DataService {
       "reviews": data.reviews,
       "evaluation": data.evaluation,
       "releaseDate": data.releaseDate,
+      "addedBy": 0,
+      "counter": data.counter,
+      "apiId": data.apiId
     });
   };
 

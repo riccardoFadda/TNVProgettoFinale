@@ -21,7 +21,7 @@ router.get('/:id', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy, counter} = req.body;
+    const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy, counter, apiId} = req.body;
 
     DataEntry.create({
         name: name,
@@ -33,7 +33,8 @@ router.post('/', function (req, res, next) {
         evaluation: evaluation,
         releaseDate: releaseDate,
         addedBy: addedBy,
-        counter: counter
+        counter: counter,
+        apiId: apiId
         
     })
         .then(dataEntry => res.status(201).json({
@@ -46,7 +47,7 @@ router.post('/', function (req, res, next) {
 
 router.put('/:id', function (req, res, next) {
     const dataId = req.params.id;
-    const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy, counter} = req.body;
+    const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy, counter, apiId} = req.body;
 
     DataEntry.update({
         name: name,
@@ -58,7 +59,8 @@ router.put('/:id', function (req, res, next) {
         evaluation: evaluation,
         releaseDate: releaseDate,
         addedBy: addedBy,
-        counter: counter
+        counter: counter,
+        apiId: apiId
     }, {
         where: {
             id: dataId

@@ -1,34 +1,67 @@
 <div class="container">
 
-  <div class="movie-card" *ngFor="let movie of dataApi| slice:0:2">
+  <div class="movie-card">
     <div class="movie-content">
       <div class="movie-content-header" >
-        <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{movie.poster_path}}" alt="Card image cap">
+        <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{this.randomMovie1.movieData.poster_path}}" alt="Card image cap" style="max-width: 200px;">
       </div>
       <div class="card-body">
-    
-      <h4 class="movie-title">{{movie.title}}</h4>
-        <div class="movie_info"> 
-              <i class="fas fa-star"></i>{{movie.vote_average}}
+
+      <h4 class="movie-title">{{this.randomMovie1.movieData.title}}</h4>
+        <div class="movie_info">
+              <i class="fas fa-star"></i>{{this.randomMovie1.movieData.vote_average}}
         </div>
         <div class="movie-info">
           <div class="info-section">
             <label>Date</label>
-            <span>{{movie.release_date}}</span>
+            <span>{{this.randomMovie1.movieData.release_date}}</span>
           </div>
         </div>
-        
+
           <details>
           <summary>
           Read Overview
           </summary>
-          <p class="card-text">"{{movie.overview}}"</p>
+          <p class="card-text">"{{this.randomMovie1.movieData.overview}}"</p>
           </details>
       </div>
     </div><!--movie-content-->
     <div class="card-body">
-      <a href="#" class="card-link">Bottone</a>
-      <a href="#" class="card-link">Bottone</a>
+      <button (click)="pickMovie(this.randomMovie1, this.movieToDb1)" class="card-link">Pick</button>
     </div>
+  </div>
+</div>
 
+<div class="container">
+
+  <div class="movie-card">
+    <div class="movie-content">
+      <div class="movie-content-header" >
+        <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{this.randomMovie2.movieData.poster_path}}" alt="Card image cap" style="max-width: 200px;">
+      </div>
+      <div class="card-body">
+
+      <h4 class="movie-title">{{this.randomMovie2.movieData.title}}</h4>
+        <div class="movie_info">
+              <i class="fas fa-star"></i>{{this.randomMovie2.movieData.vote_average}}
+        </div>
+        <div class="movie-info">
+          <div class="info-section">
+            <label>Date</label>
+            <span>{{this.randomMovie2.movieData.release_date}}</span>
+          </div>
+        </div>
+
+          <details>
+          <summary>
+          Read Overview
+          </summary>
+          <p class="card-text">"{{this.randomMovie2.movieData.overview}}"</p>
+          </details>
+      </div>
+    </div><!--movie-content-->
+    <div class="card-body">
+      <button (click)="pickMovie(this.randomMovie2, this.movieToDb2)" class="card-link">Pick</button>
+    </div>
+  </div>
 </div>

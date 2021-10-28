@@ -12,7 +12,8 @@ module.exports = (sequelize, DataType) => {
     evaluation: DataType.INTEGER(1),
     releaseDate: DataType.INTEGER(12),
     addedBy: DataType.INTEGER(11),
-    counter: DataType.INTEGER(11)
+    counter: DataType.INTEGER(11),
+    apiId: DataType.INTEGER(11)
   }, {
     freezeTableName: true,
     timestamps: false,

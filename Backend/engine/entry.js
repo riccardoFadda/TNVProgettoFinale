@@ -35,7 +35,7 @@ const getEntryById = (req, res) => {
 };
 
 const createEntry = (req, res) => {
-  const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy, counter} = req.body;
+  const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy, counter, apiId} = req.body;
 
   DataEntry.create({
     name: name,
@@ -47,7 +47,8 @@ const createEntry = (req, res) => {
     evaluation: evaluation,
     releaseDate: releaseDate,
     addedBy: addedBy,
-    counter: counter
+    counter: counter,
+    apiId: apiId
   })
     .then(entry => {
       return res.status(201).send(entry);
@@ -59,7 +60,7 @@ const createEntry = (req, res) => {
 
 const editEntry = (req, res) => {
   const entryId = req.params.id;
-  const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy, counter} = req.body;
+  const {name, cast, director, genre, rated, reviews, evaluation, releaseDate, addedBy, counter, apiId} = req.body;
 
   DataEntry.findOne({
     where: {
@@ -85,7 +86,8 @@ const editEntry = (req, res) => {
         evaluation: evaluation,
         releaseDate: releaseDate,
         addedBy: addedBy,
-        counter: counter
+        counter: counter,
+        apiId: apiId
       }, {
         where: {
           id: entryId
