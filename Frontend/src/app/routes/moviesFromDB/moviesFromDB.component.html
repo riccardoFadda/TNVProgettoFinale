@@ -1,3 +1,26 @@
-<p>
-  moviesFromDB works!
-</p>
+<div class="grid-container">
+  
+
+  <div class="grid-child">
+    <div class="card" style="width: 18rem;" >
+      <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{this.randomMovie2.movieData.poster_path}}" alt="/assets/img/welcomeFishball.gif">
+      <div class="card-body">
+        <h5 class="card-title">{{this.randomMovie1.movieData.name}}</h5>
+        <p class="card-text">{{this.randomMovie1.movieData.releaseDate}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="grid-child">
+    <div class="card" style="width: 18rem;" >
+      <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{this.randomMovie1.movieData.poster_path}}" alt="/assets/img/welcomeFishball.gif">
+      <div class="card-body">
+        <h5 class="card-title">{{this.randomMovie2.movieData.name}}</h5>
+        <p class="card-text">{{this.randomMovie2.movieData.releaseDate}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+ 
