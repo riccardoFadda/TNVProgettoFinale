@@ -1,4 +1,50 @@
-<div class="container p-5" >
+<div id="lowmid">
+  <div class="card">
+    <div class="card1" *ngFor="let entry of results|slice:0:1">
+      <img class="img" src="http://image.tmdb.org/t/p/w185/{{entry.poster_path}}" alt="./assets/img/welcomeFishball.gif">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p style="color: black">Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card2" *ngFor="let entry of results |slice:1:2">
+      <img class="img" src="http://image.tmdb.org/t/p/w185/{{entry.poster_path}}" alt="./assets/img/welcomeFishball.gif">    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p style="color: black">Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card3" *ngFor="let entry of results |slice:3:4">
+      <img class="img" src="http://image.tmdb.org/t/p/w185/{{entry.poster_path}}" alt="./assets/img/welcomeFishball.gif">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p style="color: black">Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+  <div>
     <h1 class="text-center mb-5">
       Movies
     </h1>
@@ -22,5 +68,6 @@
       </tbody>
     </table>
   </div>
+
   
   <app-loading-page *ngIf="results==null" ></app-loading-page>
