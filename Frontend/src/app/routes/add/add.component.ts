@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import { MovieData } from './../../models/data.model'
+import { AuthService } from '../../services/auth.service';
+import { UserInterface } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-add',
@@ -11,9 +13,13 @@ import { MovieData } from './../../models/data.model'
 })
 export class AddComponent implements OnInit {
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private dataService: DataService, private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.auth.user.subscribe(
+      response => this.currentUser = response,
+      error => console.log(error)
+    )
 
   }
 
@@ -22,7 +28,7 @@ export class AddComponent implements OnInit {
   genres = ['Horror','Adventure','Comedy','Fantasy','Crime','Romance']
   ratedOptions = ['yes', 'no']
 
-
+  currentUser: UserInterface;
 
   onSubmit(form : NgForm){
     this.dataEntry = form.form.value;
@@ -34,6 +40,8 @@ export class AddComponent implements OnInit {
     }else{
       this.dataEntry.rated=false;
     }
+
+    this.dataEntry.addedBy = this.currentUser.id;
 
     this.dataService.addEntry(this.dataEntry).subscribe(response => {
       console.log(response);

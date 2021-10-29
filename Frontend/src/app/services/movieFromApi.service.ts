@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MovieListInterface, MoviesApiCastAndCrewInterface } from '../models/movieFromApi.model';
+import { GenresInterface, MovieListInterface, MoviesApiCastAndCrewInterface } from '../models/movieFromApi.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesFromApiService {
 
-    private baseURL = 'https://api.themoviedb.org/3/movie/';
+    private baseURL = 'https://api.themoviedb.org/3/';
     private apiKey = "24a4cd53ea9a762873fb4acb15cdedd8";
 
     getRandomInt(min, max) : number{
@@ -19,11 +19,15 @@ export class MoviesFromApiService {
     constructor( private http : HttpClient) { }
 
     getMovies(){
-        return this.http.get<MovieListInterface>(this.baseURL+"top_rated?api_key="+this.apiKey+"&page="+this.getRandomInt(1,10));
+      return this.http.get<MovieListInterface>(this.baseURL+"movie/top_rated?api_key="+this.apiKey+"&page="+this.getRandomInt(1,463));
     }
 
     getMovieCast(id: number){
-      return this.http.get<MoviesApiCastAndCrewInterface>(this.baseURL+id+"/credits?api_key="+this.apiKey)
+      return this.http.get<MoviesApiCastAndCrewInterface>(this.baseURL+"movie/"+id+"/credits?api_key="+this.apiKey)
+    }
+
+    getGenres(){
+      return this.http.get<GenresInterface>(this.baseURL+"genre/movie/list?api_key="+this.apiKey+"&language=en-US")
     }
 
 }

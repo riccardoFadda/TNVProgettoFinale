@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MovieApiInterface } from 'src/app/models/apiMovie.model';
-import { MovieListInterface, MoviesApiResultsInterface, MoviesApiCastAndCrewInterface, MoviesApiCastResultsInterface, MoviesApiCrewResultsInterface } from '../../models/movieFromApi.model';
+import { MovieListInterface, MoviesApiResultsInterface, MoviesApiCastAndCrewInterface, MoviesApiCastResultsInterface, MoviesApiCrewResultsInterface, GenresResultsInterface } from '../../models/movieFromApi.model';
 import { MoviesFromApiService } from '../../services/movieFromApi.service';
 import { MovieData } from '../../models/data.model';
 import { DataService } from '../../services/data.service';
 import { NgbTypeaheadConfig } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from '../../services/auth.service';
+import { UserInterface } from '../../models/user.model';
 
 @Component({
   selector: 'app-MoviesFromApi',
@@ -65,11 +67,26 @@ export class MoviesFromApiComponent implements OnInit {
     "apiId": 0
   };
 
+  genres: GenresResultsInterface[];
 
-  constructor(private movieService: MoviesFromApiService, private dataService: DataService) { }
+  currentUser: UserInterface;
+
+  constructor(private movieService: MoviesFromApiService, private dataService: DataService, private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.getMoviesApi();
+    this.auth.user.subscribe(
+      response => {
+        this.currentUser = response;
+        this.movieService.getGenres().subscribe(
+          response => {
+            this.genres=response.genres;
+            this.getMoviesApi();
+          }
+        )
+      },
+      error => console.log(error)
+    )
+
   }
 
   getMoviesApi(){
@@ -83,23 +100,19 @@ export class MoviesFromApiComponent implements OnInit {
         let alreadyPresent = true;
         let previousId1=this.randomMovie1.movieData.id;
         let previousId2=this.randomMovie2.movieData.id;
-        let i=0;
-        console.log(response)
+        //console.log(response)
         do{
-          //randomMovie.movieData = response.results[this.movieService.getRandomInt(0,19)];
-          randomMovie.movieData = response.results[i++];
-          console.log("confronto il nuovo ", randomMovie.movieData.id, " con ", previousId1, " e ",previousId2)
+          randomMovie.movieData = response.results[this.movieService.getRandomInt(0,19)];
           if(randomMovie.movieData.id===previousId1 || randomMovie.movieData.id===previousId2) alreadyPresent=true;
           else alreadyPresent=false;
-          console.log("il risultato è ", alreadyPresent)
         } while(alreadyPresent===true)
-        console.log(randomMovie.movieData);
+        //console.log(randomMovie.movieData);
         this.movieService.getMovieCast(randomMovie.movieData.id).subscribe(
           response => {
             randomMovie.movieCast = response.cast;
             randomMovie.movieCrew = response.crew;
-            console.log("cast: ", randomMovie.movieCast)
-            console.log("crew: ", randomMovie.movieCrew)
+            //console.log("cast: ", randomMovie.movieCast)
+            //console.log("crew: ", randomMovie.movieCrew)
             this.addMovieToDb(randomMovie, movieToDb);
           },
           error => console.log(error)
@@ -132,7 +145,6 @@ export class MoviesFromApiComponent implements OnInit {
 
   prepareMovieToDb(movie, movieToDb){
     movieToDb.name = movie.movieData.title;
-    console.log(movie.movieCast);
     if(movie.movieCast.length>0) movieToDb.cast = movie.movieCast[0].name;
     if(movie.movieCast.length>1) movieToDb.cast= movieToDb.cast+", "+movie.movieCast[1].name;
     if(movie.movieCast.length>2) movieToDb.cast= movieToDb.cast+", "+movie.movieCast[2].name;
@@ -147,10 +159,21 @@ export class MoviesFromApiComponent implements OnInit {
                     movie.movieData.overview.substring(0, 99) + "…" :
                     movie.movieData.overview;
     movieToDb.reviews = trimmedOverview;
-    movieToDb.genre = "Horror";    //da modificare per selezionare il vero genere
-    //da aggiungere l' "addedBy", poi lo faccio io
+    var genre = this.pickGenre(movie.movieData.genre_ids[0]);
+    movieToDb.genre = genre;
+    movieToDb.addedBy = this.currentUser.id;
 
-    console.log("da mandare al db:", movieToDb);
+    //console.log("da mandare al db:", movieToDb);
+  }
+
+  pickGenre(id: number): string {
+    var genre: string;
+    this.genres.forEach(element => {
+      if(element.id===id){
+        genre = element.name;
+      }
+    });
+    return genre;
   }
 
   pickMovie(movie, movieToDb){
@@ -170,7 +193,7 @@ export class MoviesFromApiComponent implements OnInit {
             newCounter++;
             movieToDb.counter=newCounter;
             movieToDb.id=movieId;
-            console.log("modificato da mandare al db: ", movieToDb)
+            //console.log("modificato da mandare al db: ", movieToDb)
             this.dataService.editEntry(movieToDb).subscribe(
               response => {
                 console.log(response);
@@ -186,36 +209,6 @@ export class MoviesFromApiComponent implements OnInit {
       error => console.log(error)
     )
   }
-
-  /*pickMovie1(){
-    var movieId;
-    var newCounter;
-    this.prepareMovieToDb(this.randomMovie1);
-    this.dataService.getData().subscribe(
-      response => {
-        response.forEach(element => {
-          if(element.name===this.movieToDb.name && element.director===this.movieToDb.director) movieId=element.id;
-        });
-        this.dataService.getEntry(movieId).subscribe(
-          response => {
-            newCounter = response.counter++;
-            this.movieToDb.counter=newCounter;
-            this.movieToDb.id=movieId;
-            this.dataService.editEntry(this.movieToDb).subscribe(
-              response => {
-                console.log(response);
-                this.getRandomMovie(this.randomMovie2);
-              },
-              error => console.log(error)
-            )
-          },
-          error => console.log(error)
-        )
-      },
-      error => console.log(error)
-    )
-  }*/
-
 }
 
 

@@ -32,3 +32,11 @@ export interface MovieListInterface{
       job: string
     }
 
+    export interface GenresInterface{
+      genres: GenresResultsInterface[]
+    }
+
+    export interface GenresResultsInterface{
+      id: number,
+      name: string
+    }
