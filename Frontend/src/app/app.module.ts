@@ -33,6 +33,7 @@ import { MoviesFromApiComponent } from './routes/moviesFromApi/moviesFromApi.com
 import { MoviesFromApiService } from './services/movieFromApi.service';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ReviewComponent } from './components/review/review.component';
+import { PopularComponent } from './routes/popular/popular.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ReviewComponent } from './components/review/review.component';
     MoviesFromDBComponent,
     MoviesFromApiComponent,
     SignUpComponent,
-    ReviewComponent
+    ReviewComponent,
+    PopularComponent
   ],
   imports: [
     BrowserModule,

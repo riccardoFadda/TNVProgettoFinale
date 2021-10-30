@@ -40,9 +40,10 @@
             </a>
             </ng-template>
             <ng-template #logoutBlock>
+              Ciao, {{this.currentUser.username}}!
               <a [routerLink]="['/login']" class="nav-link" (click)="logout()">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
-                {{this.currentUser.username}}
+                Logout
               </a>
               </ng-template>
             </li>

@@ -25,8 +25,9 @@ header {
   #menuDX {
       font-family: 'DK Lemon Yellow Sun';
     font-size: 20px;
-    width: calc(100% - 150px);
-    float: right;
+    position: absolute;
+    /*width: calc(100% - 150px);
+    float: right;*/
   }
 
   /* classe delle scritte a destra */
