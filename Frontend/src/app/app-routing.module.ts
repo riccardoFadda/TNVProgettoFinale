@@ -35,7 +35,8 @@ const routes: Routes = [
   { path: "matchFromApi", component: MoviesFromApiComponent, canActivate: [AuthGuardService]},
   { path: "matchFromDb", component: MoviesFromDBComponent, canActivate: [AuthGuardService]},
   { path: "sign-up", component: SignUpComponent},
-  { path: "review", component: ReviewComponent, canActivate: [AuthGuardService]}
+  { path: "review", component: ReviewComponent, canActivate: [AuthGuardService]},
+  { path: "popular", component: PopularComponent, canActivate: [AuthGuardService]}
 
 ];
 
