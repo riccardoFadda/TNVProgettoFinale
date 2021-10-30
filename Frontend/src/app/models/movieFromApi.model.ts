@@ -40,3 +40,7 @@ export interface MovieListInterface{
       id: number,
       name: string
     }
+
+    export interface MoviesApiDetailsInterface{
+      poster_path: string
+    }

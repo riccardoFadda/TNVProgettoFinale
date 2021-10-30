@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { GenresInterface, MovieListInterface, MoviesApiCastAndCrewInterface } from '../models/movieFromApi.model';
+import { GenresInterface, MovieListInterface, MoviesApiCastAndCrewInterface, MoviesApiDetailsInterface } from '../models/movieFromApi.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,12 +22,16 @@ export class MoviesFromApiService {
       return this.http.get<MovieListInterface>(this.baseURL+"movie/top_rated?api_key="+this.apiKey+"&page="+this.getRandomInt(1,463));
     }
 
-    getMovieCast(id: number){
+    getMovieCastAndCrew(id: number){
       return this.http.get<MoviesApiCastAndCrewInterface>(this.baseURL+"movie/"+id+"/credits?api_key="+this.apiKey)
     }
 
     getGenres(){
       return this.http.get<GenresInterface>(this.baseURL+"genre/movie/list?api_key="+this.apiKey+"&language=en-US")
+    }
+
+    getMovieDetails(id: number){
+      return this.http.get<MoviesApiDetailsInterface>(this.baseURL+"movie/"+id+"?api_key="+this.apiKey+"&language=en-US")
     }
 
 }

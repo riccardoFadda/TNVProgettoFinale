@@ -1,9 +1,10 @@
+
 <div class="container">
 
   <div class="movie-card">
     <div class="movie-content">
       <div class="movie-content-header" >
-        <img class="card-img-top"  src="./assets/img/logoNetFish.jpg" style="max-width: 200px;">
+        <img class="card-img-top"  src="{{this.randomMovie1.moviePoster}}" style="max-width: 200px;">
       </div>
       <div class="card-body">
 
@@ -27,14 +28,14 @@
       </div>
     </div><!--movie-content-->
     <div class="card-body">
-      <button  class="card-link" (click)="pickMovie(this.randomMovie1, this.movieToDb1)" >Pick</button>
+      <button  class="card-link" (click)="pickMovie(this.randomMovie1)" >Pick</button>
     </div>
   </div>
 
   <div class="movie-card">
     <div class="movie-content">
       <div class="movie-content-header" >
-        <img class="card-img-top"  src="./assets/img/logoNetFish.jpg" style="max-width: 200px;">
+        <img class="card-img-top"  src="{{this.randomMovie2.moviePoster}}" style="max-width: 200px;">
       </div>
       <div class="card-body">
 
@@ -53,12 +54,12 @@
           <summary>
           Read Overview
           </summary>
-          <p class="card-text">"{{this.randomMovie2.movieData.review}}"</p>
+          <p class="card-text">"{{this.randomMovie2.movieData.reviews}}"</p>
           </details>
       </div>
     </div><!--movie-content-->
     <div class="card-body">
-      <button class="card-link" (click)="pickMovie(this.randomMovie2, this.movieToDb2)">Pick</button>
+      <button class="card-link" (click)="pickMovie(this.randomMovie2)">Pick</button>
     </div>
   </div>
 </div>

@@ -107,8 +107,9 @@ export class MoviesFromApiComponent implements OnInit {
           else alreadyPresent=false;
         } while(alreadyPresent===true)
         //console.log(randomMovie.movieData);
-        this.movieService.getMovieCast(randomMovie.movieData.id).subscribe(
+        this.movieService.getMovieCastAndCrew(randomMovie.movieData.id).subscribe(
           response => {
+            console.log(response)
             randomMovie.movieCast = response.cast;
             randomMovie.movieCrew = response.crew;
             //console.log("cast: ", randomMovie.movieCast)
