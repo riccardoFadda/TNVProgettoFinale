@@ -1,73 +1,38 @@
-<div id="lowmid">
-  <div class="card">
-    <div class="card1" *ngFor="let entry of results|slice:0:1">
-      <img class="img" src="http://image.tmdb.org/t/p/w185/{{entry.poster_path}}" alt="./assets/img/welcomeFishball.gif">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-      <p><a href="#">This is a link</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p style="color: black">Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
 
-  <div class="card">
-    <div class="card2" *ngFor="let entry of results |slice:1:2">
-      <img class="img" src="http://image.tmdb.org/t/p/w185/{{entry.poster_path}}" alt="./assets/img/welcomeFishball.gif">    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-      <p><a href="#">This is a link</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p style="color: black">Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
 
-  <div class="card">
-    <div class="card3" *ngFor="let entry of results |slice:3:4">
-      <img class="img" src="http://image.tmdb.org/t/p/w185/{{entry.poster_path}}" alt="./assets/img/welcomeFishball.gif">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-      <p><a href="#">This is a link</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p style="color: black">Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
+<div class="container">
+    <div class="movie-card">
+      <div class="movie-content" *ngFor="let entry of movies.results">
+        <div class="movie-content-header" >
+          <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{entry.poster_path}}" alt="Card image cap" style="max-width: 200px;">
+        </div>
+        <div class="card-body">
+  
+        <h4 class="movie-title">{{entry.title}}</h4>
+          <div class="movie_info">
+                <i class="fas fa-star"></i>{{entry.vote_average}}
+          </div>
+          <div class="movie-info">
+            <div class="info-section">
+              <label>Date</label>
+              <span>: {{entry.release_date | date}}</span>
+            </div>
+          </div>
+  
+            <details>
+            <summary>
+            Read Overview
+            </summary>
+            <p class="card-text">"{{entry.overview}}"</p>
+            </details>
+          </div>    
 </div>
-
   
+      
+        
+
+        
+     
+    
   
-
-  <div>
-    <h1 class="text-center mb-5">
-      Movies
-    </h1>
-
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Title</th>
-          <th scope="col">Original language</th>
-          <th scope="col">Popularity</th>
-          <th scope="col">Release Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="pointer" *ngFor="let entry of results">
-          <td> {{entry.title}}</td>
-          <td>{{entry.original_language}}</td>
-          <td>{{entry.popularity}}</td>
-          <td>{{entry.release_date | date}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  
-  <app-loading-page *ngIf="results==null" ></app-loading-page>
+ 

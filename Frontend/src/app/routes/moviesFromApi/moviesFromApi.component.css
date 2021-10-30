@@ -3,21 +3,30 @@
   padding: 5%;
   font-family: Poppins;
   width:100%;
-  background:lightgrey;
+  background:rgb(180, 177, 177);
   height:100%;
   overflow: hidden;
-  display: block; 
+  display: flex; 
   border:dotted 0px #bbbbbb;
   float:initial;
   align-self: center;
+  top: 50%;
+  left: 50%;
+
+
 }
 .movie-card {
   float:left;
   background:#b6d3d3;
-  padding:5px;
+  padding:10px;
   border:solid 10px #000000;
   margin:10px;
+  justify-content: center;
+  flex-direction: column;
   align-self: center;
+  display: flex;
+  width: 30%;
+  height: 80%;
 }
 .border{
     padding: 10px;
@@ -33,7 +42,7 @@
   }
  
   #titles{
-  color: rgb(39, 39, 39);
+  color: rgb(33, 30, 30);
   font-family: Poppins;
   font-weight: bold;
   }
@@ -52,7 +61,7 @@
   }
 
   h5.card-title {
-    font-weight: 700;
+    font-weight: 800;
 }
 
 h6.card-title {
@@ -66,9 +75,11 @@ h6.card-title {
 }
 
 .card-img, .card-img-top {
-  border-top-left-radius: calc(.25rem - 1px);
-  border-top-right-radius: calc(.25rem - 1px);
-  padding-bottom: 1.1rem;
+  border-top-left-radius: calc(.22rem - 1px);
+  border-top-right-radius: calc(.22rem - 1px);
+  padding-left: 1.4rem;
+  padding-bottom: 0.8rem;
+  align-self: center;
 }
 
 

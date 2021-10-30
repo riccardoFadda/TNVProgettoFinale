@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: "dashboard", component : DashboardComponent, canActivate: [AuthGuardService]},
   { path: "add", component : AddComponent, canActivate: [AuthGuardService] },
   { path: "details/:id", component : DetailsComponent, canActivate: [AuthGuardService] },
-  { path: "edit/:id", component: EditComponent, canActivate: [AuthGuardService] },
+  { path: "edit/:id", component: EditComponent, canActivate: [AuthGuardService]},
   { path: "login", component: LoginPageComponent},
   { path: "filterByGenre", component: FilterByGenreComponent, canActivate: [AuthGuardService]},
   { path: "sortByDate", component:SortByDateComponent, canActivate: [AuthGuardService]},
@@ -35,8 +35,7 @@ const routes: Routes = [
   { path: "matchFromApi", component: MoviesFromApiComponent, canActivate: [AuthGuardService]},
   { path: "matchFromDb", component: MoviesFromDBComponent, canActivate: [AuthGuardService]},
   { path: "sign-up", component: SignUpComponent},
-  { path: "review", component: ReviewComponent, canActivate: [AuthGuardService]},
-  { path: "popular", component: PopularComponent, canActivate: [AuthGuardService]}
+  { path: "review", component: ReviewComponent, canActivate: [AuthGuardService]}
 
 ];
 
