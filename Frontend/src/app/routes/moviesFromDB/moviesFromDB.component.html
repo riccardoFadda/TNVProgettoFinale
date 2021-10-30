@@ -1,26 +1,64 @@
-<div class="grid-container">
-  
+<div class="container">
 
-  <div class="grid-child">
-    <div class="card" style="width: 18rem;" >
-      <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{this.randomMovie2.movieData.poster_path}}" alt="/assets/img/welcomeFishball.gif">
-      <div class="card-body">
-        <h5 class="card-title">{{this.randomMovie1.movieData.name}}</h5>
-        <p class="card-text">{{this.randomMovie1.movieData.releaseDate}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="movie-card">
+    <div class="movie-content">
+      <div class="movie-content-header" >
+        <img class="card-img-top"  src="./assets/img/logoNetFish.jpg" style="max-width: 200px;">
       </div>
+      <div class="card-body">
+
+      <h4 class="movie-title">{{this.randomMovie1.movieData.name}}</h4>
+        <div class="movie_info">
+              <i class="fas fa-star"></i>{{this.randomMovie1.movieData.evaluation}}
+        </div>
+        <div class="movie-info">
+          <div class="info-section">
+            <label>Date</label>
+            <span>: {{this.randomMovie1.movieData.releaseDate | date}}</span>
+          </div>
+        </div>
+
+          <details>
+          <summary>
+          Read Overview
+          </summary>
+          <p class="card-text">"{{this.randomMovie1.movieData.reviews}}"</p>
+          </details>
+      </div>
+    </div><!--movie-content-->
+    <div class="card-body">
+      <button  class="card-link" (click)="pickMovie(this.randomMovie1, this.movieToDb1)" >Pick</button>
     </div>
   </div>
-  <div class="grid-child">
-    <div class="card" style="width: 18rem;" >
-      <img class="card-img-top" src="http://image.tmdb.org/t/p/w185/{{this.randomMovie1.movieData.poster_path}}" alt="/assets/img/welcomeFishball.gif">
-      <div class="card-body">
-        <h5 class="card-title">{{this.randomMovie2.movieData.name}}</h5>
-        <p class="card-text">{{this.randomMovie2.movieData.releaseDate}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+  <div class="movie-card">
+    <div class="movie-content">
+      <div class="movie-content-header" >
+        <img class="card-img-top"  src="./assets/img/logoNetFish.jpg" style="max-width: 200px;">
       </div>
+      <div class="card-body">
+
+      <h4 class="movie-title">{{this.randomMovie2.movieData.name}}</h4>
+        <div class="movie_info">
+              <i class="fas fa-star"></i>{{this.randomMovie2.movieData.evaluation}}
+        </div>
+        <div class="movie-info">
+          <div class="info-section">
+            <label>Date </label>
+            <span>: {{this.randomMovie2.movieData.releaseDate | date}}</span>
+          </div>
+        </div>
+
+          <details>
+          <summary>
+          Read Overview
+          </summary>
+          <p class="card-text">"{{this.randomMovie2.movieData.review}}"</p>
+          </details>
+      </div>
+    </div><!--movie-content-->
+    <div class="card-body">
+      <button class="card-link" (click)="pickMovie(this.randomMovie2, this.movieToDb2)">Pick</button>
     </div>
   </div>
-
 </div>
- 
