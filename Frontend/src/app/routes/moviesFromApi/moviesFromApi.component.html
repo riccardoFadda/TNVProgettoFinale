@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="movie-card">
     <div class="movie-content">
       <div class="movie-content-header" >
@@ -14,7 +13,7 @@
         <div class="movie-info">
           <div class="info-section">
             <label>Date</label>
-            <span>{{this.randomMovie1.movieData.release_date}}</span>
+            <span>: {{this.randomMovie1.movieData.release_date | date}}</span>
           </div>
         </div>
 
@@ -30,9 +29,6 @@
       <button (click)="pickMovie(this.randomMovie1, this.movieToDb1)" class="card-link">Pick</button>
     </div>
   </div>
-</div>
-
-<div class="container">
 
   <div class="movie-card">
     <div class="movie-content">
@@ -47,8 +43,8 @@
         </div>
         <div class="movie-info">
           <div class="info-section">
-            <label>Date</label>
-            <span>{{this.randomMovie2.movieData.release_date}}</span>
+            <label>Date </label>
+            <span>: {{this.randomMovie2.movieData.release_date | date}}</span>
           </div>
         </div>
 
@@ -65,3 +61,5 @@
     </div>
   </div>
 </div>
+
+
