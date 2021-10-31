@@ -1,65 +1,78 @@
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 movie_list">
+  <div class="pt-8 pb-2 mb-3 border-bottom">
+      <div class="row">
 
-<div class="container">
+          <!-- Movie Card Start -->
+           <div class="card-view">
+              <div class="card-header" >
+                <img class="card-img-top" src={{this.randomMovie1.moviePoster}} alt="Card image cap" style="max-width: 200px;">                 
+              </div>
 
-  <div class="movie-card">
-    <div class="movie-content">
-      <div class="movie-content-header" >
-        <img class="card-img-top"  src="{{this.randomMovie1.moviePoster}}" style="max-width: 200px;">
-      </div>
-      <div class="card-body">
+              <div class="card-movie-content">
+                  <div class="card-movie-content-head">
+                    
+                          <h3 class="card-movie-title">{{this.randomMovie1.movieData.name}}</h3>
+                      
+                      <div class="ratings"><span>{{this.randomMovie1.movieData.evaluation}}</span>/10</div>
+                  </div>
 
-      <h4 class="movie-title">{{this.randomMovie1.movieData.name}}</h4>
-        <div class="movie_info">
-              <i class="fas fa-star"></i>{{this.randomMovie1.movieData.evaluation}}
-        </div>
-        <div class="movie-info">
-          <div class="info-section">
-            <label>Date</label>
-            <span>: {{this.randomMovie1.movieData.releaseDate | date}}</span>
+                  <div class="card-movie-info">
+                      <div class="movie-running-time">
+                          <label>Date</label>
+                          <span>{{this.randomMovie1.movieData.releaseDate | date}}</span>
+                      </div>           
+                  </div>
+
+                  <details>
+                    <summary>
+                    Overview
+                    </summary>
+                    <p class="card-text">"{{this.randomMovie1.movieData.overview}}"</p>
+                    </details>
+              </div>
+
+              <div class="card-body">
+                <button (click)="pickMovie(this.randomMovie1)" class="card-link">Take</button>
+              </div>
           </div>
-        </div>
+          <!-- Movie Card End -->
+             <!-- Movie Card Start -->
+          <div class="card-view">
+            <div class="card-header" >
+              <img class="card-img-top" src={{this.randomMovie2.moviePoster}} alt="Card image cap" style="max-width: 200px;">                 
+            </div>
 
-          <details>
-          <summary>
-          Read Overview
-          </summary>
-          <p class="card-text">"{{this.randomMovie1.movieData.reviews}}"</p>
-          </details>
+            <div class="card-movie-content">
+                <div class="card-movie-content-head">
+                   
+                        <h3 class="card-movie-title">{{this.randomMovie2.movieData.name}}</h3>
+                    
+                    <div class="ratings"><span>{{this.randomMovie2.movieData.evaluation}}</span>/10</div>
+                </div>
+                <div class="card-movie-info">
+                    <div class="movie-running-time">
+                        <label>Date</label>
+                        <span>{{this.randomMovie2.movieData.release_date | date}}</span>
+                    </div>           
+
+                </div>
+                <details>
+                  <summary>
+                  Overview
+                  </summary>
+                  <p class="card-text">"{{this.randomMovie2.movieData.overview}}"</p>
+                  </details>
+            </div>
+            
+            
+            <div class="card-body">
+              <button (click)="pickMovie(this.randomMovie2)">Take</button>
+            </div>
+         </div>
+        
+          <!-- Movie Card End -->
+       
       </div>
-    </div><!--movie-content-->
-    <div class="card-body">
-      <button  class="card-link" (click)="pickMovie(this.randomMovie1)" >Pick</button>
-    </div>
   </div>
+</main>
 
-  <div class="movie-card">
-    <div class="movie-content">
-      <div class="movie-content-header" >
-        <img class="card-img-top"  src="{{this.randomMovie2.moviePoster}}" style="max-width: 200px;">
-      </div>
-      <div class="card-body">
-
-      <h4 class="movie-title">{{this.randomMovie2.movieData.name}}</h4>
-        <div class="movie_info">
-              <i class="fas fa-star"></i>{{this.randomMovie2.movieData.evaluation}}
-        </div>
-        <div class="movie-info">
-          <div class="info-section">
-            <label>Date </label>
-            <span>: {{this.randomMovie2.movieData.releaseDate | date}}</span>
-          </div>
-        </div>
-
-          <details>
-          <summary>
-          Read Overview
-          </summary>
-          <p class="card-text">"{{this.randomMovie2.movieData.reviews}}"</p>
-          </details>
-      </div>
-    </div><!--movie-content-->
-    <div class="card-body">
-      <button class="card-link" (click)="pickMovie(this.randomMovie2)">Pick</button>
-    </div>
-  </div>
-</div>
