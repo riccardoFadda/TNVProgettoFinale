@@ -10,7 +10,7 @@ import { WelcomePageComponent } from './routes/welcome-page/welcome-page.compone
 import { SortByDateComponent } from './routes/sort-by-date/sort-by-date.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AuthGuardService } from './services/auth-guard.service';
-import { MatchMoviesComponent } from './components/matchMovies/matchMovies.component';
+import { MatchMoviesComponent } from './routes/matchMovies/matchMovies.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ReviewComponent } from './components/review/review.component';
 import { PopularComponent } from './routes/popular/popular.component';
