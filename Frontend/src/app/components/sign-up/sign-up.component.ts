@@ -45,8 +45,8 @@ export class SignUpComponent implements OnInit {
 
   check(newUser: UserInterface){
     this.userList.forEach(element => {
-      if(element.username===newUser.username) this.alreadyExistingUser=true;
-      if(element.email===newUser.email) this.alreadyExistingEmail=true;
+      if(element.username.toLowerCase()===newUser.username.toLowerCase()) this.alreadyExistingUser=true;
+      if(element.email.toLowerCase()===newUser.email.toLowerCase()) this.alreadyExistingEmail=true;
     });
   }
 }

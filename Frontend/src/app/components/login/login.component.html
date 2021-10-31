@@ -27,7 +27,8 @@
             />
           </span>
         </li>
-        <li *ngIf="wrongInput===true" id="warning">Wrong username and/or password</li>
+        <li *ngIf="wrongInput===true" id="warning">The user you entered doesn't exist</li>
+        <li *ngIf="wrongPasswordInput===true" id="warning">The password is wrong</li>
         <li *ngIf="noInput===true" id="warning">Please enter username and password</li>
         <span>
           <button type="submit" (click)="submitButton()" class="submit">

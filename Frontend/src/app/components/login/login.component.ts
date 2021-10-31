@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   passwordInput: string;
   selectedUser: UserInterface;
   wrongInput: boolean = false;
+  wrongPasswordInput: boolean = false;
   noInput: boolean = false;
 
   ngOnInit(): void {
@@ -27,6 +28,9 @@ export class LoginComponent implements OnInit {
   submitButton(){
     this.noInput=false;
     this.wrongInput=false;
+    this.wrongPasswordInput=false;
+    if(this.usernameInput==="") this.usernameInput=null;
+    if(this.passwordInput==="") this.passwordInput=null;
     if(this.usernameInput != null && this.passwordInput !=null){
       this.user.getUserByUsername(this.usernameInput).subscribe(
         response => {
@@ -40,6 +44,9 @@ export class LoginComponent implements OnInit {
             console.log("confronto ", this.passwordInput, " e ", this.selectedUser.password);
           if(this.passwordInput===this.selectedUser.password){
             this.auth.login(this.usernameInput, this.passwordInput);
+          } else {
+            this.wrongPasswordInput=true;
+            this.passwordInput=null;
           }
           }
         },
@@ -47,7 +54,10 @@ export class LoginComponent implements OnInit {
           console.log(error);
         }
       );
-    } else this.noInput=true;
+    } else {
+      console.log(this.noInput)
+      this.noInput=true;
+    }
   }
 /*
   searchInsideArray(username: string, password: string): boolean{
