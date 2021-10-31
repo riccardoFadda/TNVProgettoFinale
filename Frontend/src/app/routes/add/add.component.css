@@ -1,9 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 .container {
     background-color: rgb(196, 195, 194);
 
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
     -ms-flex-wrap: wrap; 
     flex-wrap: wrap;
     max-width: 100%;
@@ -14,3 +14,16 @@
     justify-content: center;
     
 }
+.text-center{
+  text-align: center;
+  text-shadow: 1px 1px;
+
+}
+.text-right{
+   text-align: center;
+    display: inline-block;
+    width: 100%;
+    margin-right: 0%;
+}
+
+

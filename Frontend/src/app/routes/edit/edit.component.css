@@ -12,9 +12,34 @@
     -ms-flex-pack: center;
     justify-content: center;   
 }
-.row{
-margin-left: 20px;
-}
+
 .btn{
     width: fit-content;
 }
+.row{
+    width: auto;
+    max-height: auto;
+    margin-right: 20px;
+    
+}
+.bottone{
+    flex: right;
+    float:right;
+    margin-top: 10px;
+}
+.pt-5{
+    width: auto;
+    max-height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+

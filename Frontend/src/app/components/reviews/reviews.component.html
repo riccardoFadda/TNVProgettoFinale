@@ -1,17 +1,19 @@
 <form #selectedMovie="ngForm" class="container">
-  <div class="form-group row">
-    <label for="sort"  class="col-sm-2 col-form-label">Movie</label>
-        <div class="col-sm-10">
+  <div class="mt-3 p-4">
+    <h3>Movie Review</h3>
+        <div class="label label-info">
           <select class="form-control" id="movies" ngModel required name="selectedMovie">
             <option value="" disabled selected hidden>Select a movie</option>
             <option *ngFor="let movie of movies"> {{movie.name}} </option>
           </select>
         </div>
   </div>
+  <button class="btn btn-primary mt-5 mb-4" (click)="selectMovie(selectedMovie)">Confirm</button>
 </form>
-<button class="btn btn-primary mb-3" (click)="selectMovie(selectedMovie)">Confirm</button>
+<a class="btn btn-primary mt-5 " [routerLink]='["/review"]'>Make a Review</a>
 
-<table class="table">
+
+<table class="table-striped">
   <thead class="thead-dark">
     <tr>
       <th scope="col">User</th>

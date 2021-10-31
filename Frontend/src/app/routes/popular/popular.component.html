@@ -1,14 +1,11 @@
-<div class="container p-5" *ngIf="movies">
+<div class="container p-3" *ngIf="movies">
   <h1 class="text-center mb-5">
-    The Net Fish
+    The Net Fish Popular Movies
   </h1>
-
-  <div class="text-right">
-
-    <button type="button"  style="font-size: 30px" class="btn btn-default" aria-label="Left Align" [routerLink]='["/add"]'>
-      <span class="fas fa-plus" aria-hidden="true"></span>
-      </button>
-
+  <div class="text-right">  
+    <a class="btn btn-secondary mr-3" aria-label="Left Align" [routerLink]='["/add"]'>
+      Add Movie
+      </a>
   </div>
 
   <table class="table">

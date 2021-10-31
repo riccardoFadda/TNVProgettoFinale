@@ -1,35 +1,30 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 .container {
     background-color: rgb(196, 195, 194);
-
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap; 
     flex-wrap: wrap;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    
+    justify-content: center;   
 }
 .text-center{
   text-align: center;
-  text-shadow: 1px 1px;
+  text-shadow: 2px 2px;
 
 }
 .text-right{
    text-align: center;
     display: inline-block;
     width: 100%;
-    margin-right: 0%;
 }
-*, *:before, *:after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.sort{
+  text-align: right;
+  font-size:300px;
+}
+
+.row{
+  width: auto;
 }
 
 body {
@@ -40,8 +35,8 @@ table {
   background: #012B39;
   border-radius: 0.25em;
   border-collapse: collapse;
-  margin: 1em;
-  max-width: auto;
+  width: 100%;
+  height: 100%;
 }
 th {
   border-bottom: 1px solid #364043;

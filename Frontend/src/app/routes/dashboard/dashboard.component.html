@@ -3,13 +3,16 @@
     The Net Fish
   </h1>
 
+
   <div class="text-right">  
-    <button type="button"  style="font-size: 30px" class="btn btn-default" aria-label="Left Align" [routerLink]='["/add"]'>
-      <span class="fas fa-plus" aria-hidden="true"></span>
-      </button>
+    <a class="btn btn-secondary mr-3" aria-label="Left Align" [routerLink]='["/add"]'>
+      Add Movie
+      </a>
+      <a class="btn btn-secondary" aria-label="Left Align" [routerLink]='["/popular"]'>Popular Movies</a>
+
   </div>
 
-  <table class="table">
+  <table class="table-responsive">
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>

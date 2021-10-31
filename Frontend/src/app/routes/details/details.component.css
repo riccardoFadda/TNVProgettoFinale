@@ -1,6 +1,5 @@
 .container {
     background-color: rgb(196, 195, 194);
-
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -12,5 +11,18 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    position: relative;
+    
+}
+.row{
+    width: auto;
+    max-height: auto;
+    flex: left;
+    float:left;
+}
+.bottone{
+    flex: right;
+    float:right;
+    margin-top: 10px;
     
 }
