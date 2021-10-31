@@ -1,65 +1,43 @@
 .container{
-  margin: top 20px;;
-  padding: 5%;
+  margin: 10px;;
+  padding: 2.5%;
   font-family: Poppins;
-  height: auto;
+  height: 25%;
   width: auto;
+  text-align: center;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
 
 }
-element.style {
-  width: 18rem;
-  margin-bottom: 2rem;
-}
-
-#titles{
-color: rgb(39, 39, 39);
-font-family: Poppins;
-font-weight: bold;
-margin-bottom: -0.7rem;
-}
-#subtitles{
-color: rgb(116, 116, 116);
-font-family: Poppins;
-font-size: 22px;
-font-weight: thin;
-}
-
-#labels{
-color: rgb(116, 116, 116);
-font-family: Poppins;
-font-size: 16px;
-font-weight: thin;
-}
-
-#rcorners4 {
-  border-radius: 15px;
-  background: #ffffff;
+.header{
+  text-align: center;
+  justify-content: center;
+  float:flex;
+  margin: 0 auto;
+  width: 30%;
+  background-color: rgb(240, 197, 116);
   padding: 20px;
-  margin-left: 10px;
-  width: 200px;
-  height: 300px;
-  box-shadow: 8px 7px 10px 0px #d6d6d6;
-  border: none;
-}
+  color:black;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
 
-#button{
-  border-radius: 10px;
-  background: rgb(240, 197, 116);
-  width: 420px;
-  height: 50;
-  box-shadow: 0px 2px 10px 0px #d6d6d6;
+
+}
+.label{
+  margin-block: 30px;
+  background-color: rgb(238, 179, 71);
+  color: #000000;
+  margin:10px;
   padding: 10px;
-  border: none;
-  color: white;
+  max-width: 180px;
+  display: inline-block;
+  text-align: center;
+  margin:20px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
 
 }
 
-#radiosx{
-  margin-right: 24px;
-  margin-left: 5px;
-}
 
-#radiodx{
-
-  margin-left: 5px;
-}
+  
+ 
+  
+  
+ 

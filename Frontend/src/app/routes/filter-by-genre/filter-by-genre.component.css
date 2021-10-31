@@ -1,0 +1,12 @@
+.container  {
+    padding-top: 20px;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    font-family: "DK Lemon Yellow Sun";
+    font-weight: bold;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(196, 195, 194);
+  }

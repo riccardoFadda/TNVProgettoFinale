@@ -1,41 +1,24 @@
-<!--<div class="container">
+<div class="container">
   <div class="row">
-    <div class="col">
-      <h1 id="titles">Movie Match</h1>
-      <p id="subtitles" >Explore</p>
-      <form action="/action_page.php">
-        <div>
-          <a href="/matchFromApi">
-          <input type="radio" id="radiox" name="radio" value="Netfish">
-          <label id="radiosx"for="Netfish" href="/matchFromDb">Netfish List</label>
-          </a>
-          <a href="/matchFromDb">
-          <input type="radio" id="radiox" name="radio" value="Watchlist">
-          <label id="radiodx"  for="Watchlist">Your Watchlist</label>
-          </a>
-        </div>
-      </form>
-    </div>
+      <div class ="header">
+        <h1 id="titles">Movie Match</h1>
+          <div class="label">
+            <label>
+              <input [value]="1" [(ngModel)]="sh" name="sh" type="radio" [checked]="isChecked" /> API
+            </label>
+
+            <label>
+              <input [value]="0" [(ngModel)]="sh" name="sh" type="radio" [checked]="!isChecked" /> Database
+            </label>
+          </div>
+      </div>
   </div>
 </div>
-<body>
-  <app-MoviesFromApi></app-MoviesFromApi>
-</body>
--->
 
-<div>
-  <h1 id="titles">Movie Match</h1>
-<div>
-  <label>
-    <input [value]="1" [(ngModel)]="sh" name="sh" type="radio" [checked]="isChecked" /> API
-  </label>
-
-  <label>
-    <input [value]="0" [(ngModel)]="sh" name="sh" type="radio" [checked]="!isChecked" /> Database
-  </label>
-</div>
 <body>
   <div *ngIf="sh == 1"><app-MoviesFromApi></app-MoviesFromApi></div>
   <div *ngIf="sh == 0"><app-moviesFromDB></app-moviesFromDB></div>
 </body>
-</div>
+
+
+
