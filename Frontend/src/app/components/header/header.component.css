@@ -38,6 +38,7 @@ header {
       transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
   }
 
+
   /* fascia nera di sfondo */
   .bg-dark{
     height: 80px;
@@ -68,9 +69,9 @@ header {
     min-height: 100vh;
     background-color: #141E30;
     background: linear-gradient(to right, #24243e, #141E30, #0f0c29); }
-    
-    
-    
-  
-    
-    
+
+
+
+
+
+
