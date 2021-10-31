@@ -5,22 +5,22 @@
           <!-- Movie Card Start -->
            <div class="card-view">
               <div class="card-header" >
-                <img class="card-img-top" src={{this.randomMovie1.moviePoster}} alt="Card image cap" style="max-width: 200px;">                 
+                <img class="card-img-top" src={{this.randomMovie1.moviePoster}} alt="Card image cap" style="max-width: 200px;">
               </div>
 
               <div class="card-movie-content">
                   <div class="card-movie-content-head">
-                    
+
                           <h3 class="card-movie-title">{{this.randomMovie1.movieData.name}}</h3>
-                      
+
                       <div class="ratings"><span>{{this.randomMovie1.movieData.evaluation}}</span>/10</div>
                   </div>
 
                   <div class="card-movie-info">
                       <div class="movie-running-time">
-                          <label>Date</label>
+                          <label>Date: </label>
                           <span>{{this.randomMovie1.movieData.releaseDate | date}}</span>
-                      </div>           
+                      </div>
                   </div>
 
                   <details>
@@ -32,28 +32,28 @@
               </div>
 
               <div class="card-body">
-                <button (click)="pickMovie(this.randomMovie1)" class="card-link">Take</button>
+                <button (click)="pickMovie(this.randomMovie1)" class="card-link">Pick</button>
               </div>
           </div>
           <!-- Movie Card End -->
              <!-- Movie Card Start -->
           <div class="card-view">
             <div class="card-header" >
-              <img class="card-img-top" src={{this.randomMovie2.moviePoster}} alt="Card image cap" style="max-width: 200px;">                 
+              <img class="card-img-top" src={{this.randomMovie2.moviePoster}} alt="Card image cap" style="max-width: 200px;">
             </div>
 
             <div class="card-movie-content">
                 <div class="card-movie-content-head">
-                   
+
                         <h3 class="card-movie-title">{{this.randomMovie2.movieData.name}}</h3>
-                    
+
                     <div class="ratings"><span>{{this.randomMovie2.movieData.evaluation}}</span>/10</div>
                 </div>
                 <div class="card-movie-info">
                     <div class="movie-running-time">
-                        <label>Date</label>
-                        <span>{{this.randomMovie2.movieData.release_date | date}}</span>
-                    </div>           
+                        <label>Date: </label>
+                        <span>{{this.randomMovie2.movieData.releaseDate | date}}</span>
+                    </div>
 
                 </div>
                 <details>
@@ -63,15 +63,15 @@
                   <p class="card-text">"{{this.randomMovie2.movieData.overview}}"</p>
                   </details>
             </div>
-            
-            
+
+
             <div class="card-body">
-              <button (click)="pickMovie(this.randomMovie2)">Take</button>
+              <button (click)="pickMovie(this.randomMovie2)">Pick</button>
             </div>
          </div>
-        
+
           <!-- Movie Card End -->
-       
+
       </div>
   </div>
 </main>

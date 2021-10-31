@@ -19,17 +19,15 @@ import { FilterByGenreComponent } from './routes/filter-by-genre/filter-by-genre
 import { GenrePipePipe } from './pipes/genrePipe/genre-pipe.pipe';
 import { WelcomePageComponent } from './routes/welcome-page/welcome-page.component';
 import { SortByDateComponent } from './routes/sort-by-date/sort-by-date.component';
-import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { MovieratingsService } from './services/movieratings.service';
 import { CommentsService } from './services/comments.service';
-import { MoviesApiService } from './services/moviesapi.service';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AuthGuardService } from './services/auth-guard.service';
-import { MatchMoviesComponent } from './components/matchMovies/matchMovies.component';
-import { MoviesFromDBComponent } from './routes/moviesFromDB/moviesFromDB.component';
-import { MoviesFromApiComponent } from './routes/moviesFromApi/moviesFromApi.component';
+import { MatchMoviesComponent } from './routes/matchMovies/matchMovies.component';
+import { MoviesFromDBComponent } from './components/moviesFromDB/moviesFromDB.component';
+import { MoviesFromApiComponent } from './components/moviesFromApi/moviesFromApi.component';
 import { MoviesFromApiService } from './services/movieFromApi.service';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ReviewComponent } from './components/review/review.component';
@@ -51,7 +49,6 @@ import { PopularComponent } from './routes/popular/popular.component';
     GenrePipePipe,
     WelcomePageComponent,
     SortByDateComponent,
-    MoviesApiComponent,
     ReviewsComponent,
     MatchMoviesComponent,
     MoviesFromDBComponent,
@@ -68,7 +65,7 @@ import { PopularComponent } from './routes/popular/popular.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DataService, AuthService, UserService, MovieratingsService, CommentsService, MoviesApiService,MoviesFromApiService, AuthGuardService],
+  providers: [DataService, AuthService, UserService, MovieratingsService, CommentsService,MoviesFromApiService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
