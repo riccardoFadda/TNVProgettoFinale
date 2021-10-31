@@ -25,6 +25,8 @@
               <input type="password" class="form-control" id="password" required ngModel name="password">
           </div>
       </div>
+      <li *ngIf="alreadyExistingEmail===true" id="warning">The email is already used</li>
+      <li *ngIf="alreadyExistingUser===true" id="warning">The username is already used</li>
 
       <button type="submit" [disabled]="!form.valid" class="btn btn-success">Submit</button>
 
