@@ -9,8 +9,16 @@
       </div>
 
 
+
       <div>
-        <ul id="menuDX" class="nav col-lg-auto my-2 my-md-0 justify-content-end">
+        <ul *ngIf="this.currentUser!=null" id="menuDX" class="nav col-lg-auto my-2 my-md-0 justify-content-center">
+         <div class="nav-link">
+            <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
+             You are currently logged in as {{this.currentUser.username}}
+          </div>
+        </ul>
+
+          <ul id="menuDX" class="nav col-lg-auto my-2 my-md-0 justify-content-end">
           <li></li>
 
           <li>
@@ -34,14 +42,13 @@
             <li *ngIf="this.currentUser==null; then loginBlock else logoutBlock">
             <li>
             <ng-template #loginBlock>
-            <a [routerLink]="['/login']" class="nav-link">
+            <li><a [routerLink]="['/login']" class="nav-link">
               <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
               <i class="openButton fas fa-user fa-1.5x bi d-block mx-auto mb-1" width="24" height="24"></i>
             </a>
             </ng-template>
             <ng-template #logoutBlock>
-              <li>Ciao, {{this.currentUser.username}}!</li>
-              <a [routerLink]="['/login']" class="nav-link" (click)="logout()">
+              <a [routerLink]="['']" class="nav-link" (click)="logout()">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
                 Logout
               </a>
