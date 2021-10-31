@@ -5,7 +5,7 @@ export interface MovieData {
     director: string;
     genre: string;
     rated: boolean;
-    reviews: string;
+    overview: string;
     evaluation: number;
     releaseDate?: Date;
     addedBy: number;

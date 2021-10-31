@@ -12,8 +12,6 @@ import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { MatchMoviesComponent } from './components/matchMovies/matchMovies.component';
-import { MoviesFromApiComponent } from './routes/moviesFromApi/moviesFromApi.component';
-import { MoviesFromDBComponent } from './routes/moviesFromDB/moviesFromDB.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ReviewComponent } from './components/review/review.component';
 import { PopularComponent } from './routes/popular/popular.component';
@@ -32,8 +30,6 @@ const routes: Routes = [
   { path: "moviesApi", component: MoviesApiComponent, canActivate: [AuthGuardService]},
   { path: "reviews", component: ReviewsComponent, canActivate: [AuthGuardService]},
   { path: "matchMovies", component: MatchMoviesComponent, canActivate: [AuthGuardService]},
-  { path: "matchFromApi", component: MoviesFromApiComponent, canActivate: [AuthGuardService]},
-  { path: "matchFromDb", component: MoviesFromDBComponent, canActivate: [AuthGuardService]},
   { path: "sign-up", component: SignUpComponent},
   { path: "review", component: ReviewComponent, canActivate: [AuthGuardService]},
   { path: "popular", component: PopularComponent, canActivate: [AuthGuardService]}

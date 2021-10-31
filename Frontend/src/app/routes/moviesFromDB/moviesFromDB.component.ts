@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesFromDbService }from'../../services/movieFromDb.service';
 import { DataService } from '../../services/data.service';
 import { MovieData } from '../../models/data.model';
 import { AuthService } from 'src/app/services/auth.service';
@@ -30,36 +29,6 @@ export class MoviesFromDBComponent implements OnInit {
     "movieData": 0,
     "moviePoster": 0
   }
-
-  /*randomMovie1: MovieData = {
-    "addedBy" : 0,
-    "cast": "",
-    "counter": 0,
-    "director": "",
-    "evaluation": 0,
-    "genre": "",
-    "name": "",
-    "rated": false,
-    "reviews": "",
-    "apiId": 0,
-    "id": 0,
-    "releaseDate": null
-  };
-
-  randomMovie2: MovieData = {
-    "addedBy" : 0,
-    "cast": "",
-    "counter": 0,
-    "director": "",
-    "evaluation": 0,
-    "genre": "",
-    "name": "",
-    "rated": false,
-    "reviews": "",
-    "apiId": 0,
-    "id": 0,
-    "releaseDate": null
-  };*/
 
   movies: MovieData[];
 

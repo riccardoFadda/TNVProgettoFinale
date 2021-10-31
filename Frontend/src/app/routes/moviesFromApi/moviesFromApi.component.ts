@@ -50,7 +50,7 @@ export class MoviesFromApiComponent implements OnInit {
     "genre": "",
     "name": "",
     "rated": false,
-    "reviews": "",
+    "overview": "",
     "apiId": 0
   };
 
@@ -63,7 +63,7 @@ export class MoviesFromApiComponent implements OnInit {
     "genre": "",
     "name": "",
     "rated": false,
-    "reviews": "",
+    "overview": "",
     "apiId": 0
   };
 
@@ -106,7 +106,7 @@ export class MoviesFromApiComponent implements OnInit {
           if(randomMovie.movieData.id===previousId1 || randomMovie.movieData.id===previousId2) alreadyPresent=true;
           else alreadyPresent=false;
         } while(alreadyPresent===true)
-        //console.log(randomMovie.movieData);
+        console.log(randomMovie.movieData);
         this.movieService.getMovieCastAndCrew(randomMovie.movieData.id).subscribe(
           response => {
             console.log(response)
@@ -156,10 +156,10 @@ export class MoviesFromApiComponent implements OnInit {
     movie.movieCrew.forEach(element => {
       if(element.job==="Director") movieToDb.director=element.name;
     });
-    var trimmedOverview = movie.movieData.overview.length > 100 ?
+    /*var trimmedOverview = movie.movieData.overview.length > 100 ?
                     movie.movieData.overview.substring(0, 99) + "…" :
-                    movie.movieData.overview;
-    movieToDb.reviews = trimmedOverview;
+                    movie.movieData.overview;*/
+    movieToDb.overview = movie.movieData.overview;
     var genre = this.pickGenre(movie.movieData.genre_ids[0]);
     movieToDb.genre = genre;
     movieToDb.addedBy = this.currentUser.id;

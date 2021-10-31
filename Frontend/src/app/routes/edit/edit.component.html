@@ -25,7 +25,7 @@
         <div class="form-group row">
             <label for="director" class="col-sm-2 col-form-label">Director</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="director" required 
+                <input type="text" class="form-control" id="director" required
                 [(ngModel)]="dataEntry.director" name="director">
             </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="form-group row">
             <label for="continent" class="col-sm-2 col-form-label">Genre</label>
             <div class="col-sm-10">
-                <select class="form-control" id="genre" required 
+                <select class="form-control" id="genre" required
                 [(ngModel)]="dataEntry.genre" name="genre">
                     <option [value]="genre" *ngFor="let genre of genres">
                         {{genre}}
@@ -56,17 +56,17 @@
         </div>
 
         <div class="form-group row">
-            <label for="reviews" class="col-sm-2 col-form-label">Reviews</label>
+            <label for="overview" class="col-sm-2 col-form-label">Overview</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="reviews" required 
-                [(ngModel)]="dataEntry.reviews" name="reviews">
+                <input type="text" class="form-control" id="overview" required
+                [(ngModel)]="dataEntry.overview" name="overview">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="evaluation" class="col-sm-2 col-form-label">Evaluation</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="evaluation" required number 
+                <input type="number" class="form-control" id="evaluation" required number
                 [(ngModel)]="dataEntry.evaluation" name="evaluation">
             </div>
         </div>

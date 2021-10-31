@@ -8,7 +8,7 @@ module.exports = (sequelize, DataType) => {
     director: DataType.STRING(100),
     genre: DataType.STRING(100),
     rated: DataType.BOOLEAN(1),
-    reviews: DataType.STRING(100),
+    overview: DataType.STRING(600),
     evaluation: DataType.INTEGER(1),
     releaseDate: DataType.INTEGER(12),
     addedBy: DataType.INTEGER(11),
