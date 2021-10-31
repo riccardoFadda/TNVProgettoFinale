@@ -12,22 +12,41 @@ import { UserService } from '../../services/user.service';
 export class SignUpComponent implements OnInit {
 
   newEntry : UserInterface
+  alreadyExistingUser: boolean = false;
+  alreadyExistingEmail: boolean = false;
+  userList: UserInterface[]
 
   constructor(private users: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    this.users.getAllUsers().subscribe(
+      response => this.userList=response,
+      error => console.log(error)
+    )
   }
 
   onSubmit(form : NgForm){
+    this.alreadyExistingUser=false;
+    this.alreadyExistingEmail=false;
     this.newEntry = form.form.value;
     console.log(form);
     console.log(this.newEntry);
     this.newEntry.enabled=1;
-    this.users.addUser(this.newEntry).subscribe(response => {
-      this.router.navigate(['/login']);
-      console.log(response);
-    },
-    error => console.log(error)
-    )
+    this.check(this.newEntry);
+    if(this.alreadyExistingEmail===false && this.alreadyExistingUser===false){
+      this.users.addUser(this.newEntry).subscribe(response => {
+        this.router.navigate(['/login']);
+        console.log(response);
+      },
+      error => console.log(error)
+      )
+    }
+  }
+
+  check(newUser: UserInterface){
+    this.userList.forEach(element => {
+      if(element.username===newUser.username) this.alreadyExistingUser=true;
+      if(element.email===newUser.email) this.alreadyExistingEmail=true;
+    });
   }
 }

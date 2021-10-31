@@ -9,6 +9,9 @@ export class MatchMoviesComponent implements OnInit {
 
   constructor() { }
 
+  sh: any;
+  isChecked: boolean = true;
+
   ngOnInit() {
   }
 
