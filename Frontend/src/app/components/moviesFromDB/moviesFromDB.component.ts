@@ -30,15 +30,15 @@ export class MoviesFromDBComponent implements OnInit {
     "moviePoster": 0
   }
 
-  movies: MovieData[];
+  movies: MovieData[] = [this.randomMovie1.movieData,this.randomMovie2.movieData];
 
   constructor(private dataService:DataService,private auth: AuthService, private movieService: MoviesFromApiService) { }
 
   ngOnInit(): void {
     this.dataService.getData().subscribe(
       response => {
-          this.movies=response;
-          this.getMoviesDb();
+        this.movies=response;
+        if(this.movies.length>2) this.getMoviesDb();
       },
       error => console.log(error)
     )

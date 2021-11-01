@@ -1,7 +1,7 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 movie_list">
   <div class="pt-8 pb-2 mb-3 border-bottom">
       <div class="row">
-
+        <ng-container *ngIf="this.movies.length>2">
           <!-- Movie Card Start -->
            <div class="card-view">
               <div class="card-header" >
@@ -71,7 +71,8 @@
          </div>
 
           <!-- Movie Card End -->
-
+        </ng-container>
+        <div *ngIf="this.movies.length<=2">Not enough movies in the Database</div>
       </div>
   </div>
 </main>
