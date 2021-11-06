@@ -35,9 +35,12 @@ CREATE TABLE `data` (
   `director` varchar(128) NOT NULL,
   `genre` varchar(128) NOT NULL,
   `rated` bit(1) NOT NULL,
-  `reviews` varchar(200) NOT NULL,
+  `overview` varchar(600) NOT NULL,
   `evaluation` int(1) NOT NULL,
-  `releaseDate` date NOT NULL
+  `releaseDate` date NOT NULL,
+  `addedBy` int(11) NOT NULL,
+  `counter` int(11) NOT NULL,
+  `apiId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
